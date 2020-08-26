@@ -1,0 +1,31 @@
+.footer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top: 2px solid rgb(0, 0, 0, 0.1);
+    margin: 0px 2vw 0px;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.icon {
+    height: 22px;
+    width: auto;
+    padding: 2px 5px 0px;
+}
+
+@media screen and (max-width: 767px) {
+    .icons-container {
+        font-size: 0.7rem;
+    }
+    .icon {
+        height: 15px;
+        padding: 2px 3px 0px;
+    }
+}
