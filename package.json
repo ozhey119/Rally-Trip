@@ -1,7 +1,7 @@
 {
   "name": "rallytrip",
   "version": "0.1.0",
-  "homepage": "https://ozhey119.github.io/rallytrip",
+  "homepage": "https://ozhey119.github.io/RallyTrip",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
