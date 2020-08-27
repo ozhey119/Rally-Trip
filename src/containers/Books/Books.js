@@ -11,12 +11,11 @@ const Books = () => {
 
     const imagesObject = {};
     images.forEach(image => {
-        let num = parseInt(image.substring(14, 15));
+        let num = parseInt(image.substring(24, 25));
         if (!imagesObject.hasOwnProperty(num))
             imagesObject[num] = [];
         imagesObject[num].push(image)
     });
-
     return (
         <div id='books'>
             <BookMenu setActiveBook={setActiveBook} bookNames={bookNames} activeBook={activeBook} />
