@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rallytrip/static/css/main.df77a612.chunk.css",
-    "main.js": "/rallytrip/static/js/main.246241e8.chunk.js",
-    "main.js.map": "/rallytrip/static/js/main.246241e8.chunk.js.map",
+    "main.js": "/rallytrip/static/js/main.23425634.chunk.js",
+    "main.js.map": "/rallytrip/static/js/main.23425634.chunk.js.map",
     "runtime-main.js": "/rallytrip/static/js/runtime-main.709930db.js",
     "runtime-main.js.map": "/rallytrip/static/js/runtime-main.709930db.js.map",
     "static/js/2.fd66cf29.chunk.js": "/rallytrip/static/js/2.fd66cf29.chunk.js",
     "static/js/2.fd66cf29.chunk.js.map": "/rallytrip/static/js/2.fd66cf29.chunk.js.map",
     "index.html": "/rallytrip/index.html",
-    "precache-manifest.64d734c81b2c2725c18cadc42501011c.js": "/rallytrip/precache-manifest.64d734c81b2c2725c18cadc42501011c.js",
+    "precache-manifest.058a57d7dcad301c7198d8e433fbcfb4.js": "/rallytrip/precache-manifest.058a57d7dcad301c7198d8e433fbcfb4.js",
     "service-worker.js": "/rallytrip/service-worker.js",
     "static/css/main.df77a612.chunk.css.map": "/rallytrip/static/css/main.df77a612.chunk.css.map",
     "static/js/2.fd66cf29.chunk.js.LICENSE.txt": "/rallytrip/static/js/2.fd66cf29.chunk.js.LICENSE.txt",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.709930db.js",
     "static/js/2.fd66cf29.chunk.js",
     "static/css/main.df77a612.chunk.css",
-    "static/js/main.246241e8.chunk.js"
+    "static/js/main.23425634.chunk.js"
   ]
 }
