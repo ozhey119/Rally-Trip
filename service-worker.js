@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rallytrip/precache-manifest.49c5812375d07e71df1392941f943c49.js"
+  "/rallytrip/precache-manifest.64d734c81b2c2725c18cadc42501011c.js"
 );
 
 self.addEventListener('message', (event) => {

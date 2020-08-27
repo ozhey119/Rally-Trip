@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b54829e5309f1e6568ce9363553850ce",
+    "revision": "edd17f834d235ab9fb484afb75c8ee07",
     "url": "/rallytrip/index.html"
   },
   {
-    "revision": "f5550c87e8026c706652",
+    "revision": "b4c6d17fcd58c21e94ab",
     "url": "/rallytrip/static/css/main.df77a612.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/rallytrip/static/js/2.fd66cf29.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f5550c87e8026c706652",
-    "url": "/rallytrip/static/js/main.9df93322.chunk.js"
+    "revision": "b4c6d17fcd58c21e94ab",
+    "url": "/rallytrip/static/js/main.246241e8.chunk.js"
   },
   {
     "revision": "0b9f78640a8948d4625b",
