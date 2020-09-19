@@ -1,29 +1,34 @@
 {
   "files": {
-    "main.css": "/RallyTrip/static/css/main.df77a612.chunk.css",
-    "main.js": "/RallyTrip/static/js/main.e7f6152f.chunk.js",
-    "main.js.map": "/RallyTrip/static/js/main.e7f6152f.chunk.js.map",
+    "main.css": "/RallyTrip/static/css/main.fcfcbda9.chunk.css",
+    "main.js": "/RallyTrip/static/js/main.c477ad41.chunk.js",
+    "main.js.map": "/RallyTrip/static/js/main.c477ad41.chunk.js.map",
     "runtime-main.js": "/RallyTrip/static/js/runtime-main.c0ef8e8d.js",
     "runtime-main.js.map": "/RallyTrip/static/js/runtime-main.c0ef8e8d.js.map",
-    "static/js/2.fd66cf29.chunk.js": "/RallyTrip/static/js/2.fd66cf29.chunk.js",
-    "static/js/2.fd66cf29.chunk.js.map": "/RallyTrip/static/js/2.fd66cf29.chunk.js.map",
+    "static/js/2.3f49ef19.chunk.js": "/RallyTrip/static/js/2.3f49ef19.chunk.js",
+    "static/js/2.3f49ef19.chunk.js.map": "/RallyTrip/static/js/2.3f49ef19.chunk.js.map",
     "index.html": "/RallyTrip/index.html",
-    "precache-manifest.52306026551d1b74ea669e1d923f18b7.js": "/RallyTrip/precache-manifest.52306026551d1b74ea669e1d923f18b7.js",
+    "precache-manifest.0c074aa7d2a8527424cc708a688f68a7.js": "/RallyTrip/precache-manifest.0c074aa7d2a8527424cc708a688f68a7.js",
     "service-worker.js": "/RallyTrip/service-worker.js",
-    "static/css/main.df77a612.chunk.css.map": "/RallyTrip/static/css/main.df77a612.chunk.css.map",
-    "static/js/2.fd66cf29.chunk.js.LICENSE.txt": "/RallyTrip/static/js/2.fd66cf29.chunk.js.LICENSE.txt",
-    "static/media/1image one.jpg": "/RallyTrip/static/media/1image one.975fb89a.jpg",
-    "static/media/1image.jpg": "/RallyTrip/static/media/1image.2356a317.jpg",
-    "static/media/1image1.jpg": "/RallyTrip/static/media/1image1.fd19b16c.jpg",
-    "static/media/2image.jpg": "/RallyTrip/static/media/2image.f9b457b3.jpg",
-    "static/media/2image3.jpg": "/RallyTrip/static/media/2image3.6723675a.jpg",
-    "static/media/3image.jpg": "/RallyTrip/static/media/3image.c5cb996d.jpg",
-    "static/media/WhatsApp.png": "/RallyTrip/static/media/WhatsApp.43d114ae.png"
+    "static/css/main.fcfcbda9.chunk.css.map": "/RallyTrip/static/css/main.fcfcbda9.chunk.css.map",
+    "static/js/2.3f49ef19.chunk.js.LICENSE.txt": "/RallyTrip/static/js/2.3f49ef19.chunk.js.LICENSE.txt",
+    "static/media/10.jpg": "/RallyTrip/static/media/10.a8fc949e.jpg",
+    "static/media/11.jpg": "/RallyTrip/static/media/11.c54287fc.jpg",
+    "static/media/20.jpg": "/RallyTrip/static/media/20.a981a899.jpg",
+    "static/media/21.jpg": "/RallyTrip/static/media/21.2a8e4371.jpg",
+    "static/media/22.jpg": "/RallyTrip/static/media/22.cb4ed735.jpg",
+    "static/media/30.jpg": "/RallyTrip/static/media/30.4b515eb1.jpg",
+    "static/media/31.jpg": "/RallyTrip/static/media/31.9751db6b.jpg",
+    "static/media/32.jpg": "/RallyTrip/static/media/32.7af44d25.jpg",
+    "static/media/WhatsApp.png": "/RallyTrip/static/media/WhatsApp.43d114ae.png",
+    "static/media/image.jpg": "/RallyTrip/static/media/image.90e4d25e.jpg",
+    "static/media/image1.jpg": "/RallyTrip/static/media/image1.cb1de287.jpg",
+    "static/media/image2.jpg": "/RallyTrip/static/media/image2.73dcd0d0.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c0ef8e8d.js",
-    "static/js/2.fd66cf29.chunk.js",
-    "static/css/main.df77a612.chunk.css",
-    "static/js/main.e7f6152f.chunk.js"
+    "static/js/2.3f49ef19.chunk.js",
+    "static/css/main.fcfcbda9.chunk.css",
+    "static/js/main.c477ad41.chunk.js"
   ]
 }
