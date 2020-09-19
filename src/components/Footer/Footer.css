@@ -15,7 +15,7 @@
 }
 
 .icon {
-    height: 22px;
+    height: 25px;
     width: auto;
     padding: 2px 5px 0px;
 }
@@ -25,7 +25,7 @@
         font-size: 0.7rem;
     }
     .icon {
-        height: 15px;
+        height: 20px;
         padding: 2px 3px 0px;
     }
 }

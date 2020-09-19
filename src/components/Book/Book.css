@@ -1,10 +1,11 @@
 .book {
     text-align: center;
+    max-width: 800px;
+    box-sizing: border-box;
     padding: 20px;
     margin: 0px auto;
-    max-width: 800px;
     background-color: rgb(243, 243, 243);
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -14,9 +15,11 @@
     padding: 5px;
 }
 
-
 .book div span:first-child, .updates li span:first-child {
-    display: inline-block;
     padding: 5px;
     font-weight: 600;
+}
+
+.updates li span {
+    display: block;
 }
