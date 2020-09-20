@@ -3,7 +3,9 @@ import Book from '../../components/Book/Book';
 import BookMenu from '../../components/BookMenu/BookMenu';
 import './Books.css';
 import booksInformation from './booksInformation.json';
-const images = importAll(require.context('../../images/', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
+
+console.log(images)
 
 const Books = () => {
     const [activeBook, setActiveBook] = useState(0);
@@ -11,7 +13,7 @@ const Books = () => {
 
     const imagesObject = {};
     images.forEach(image => {
-        let num = parseInt(image.substring(24, 25));
+        let num = image.substr(image.lastIndexOf('/')+1)[0];
         if (!imagesObject.hasOwnProperty(num))
             imagesObject[num] = [];
         imagesObject[num].push(image)
