@@ -1,13 +1,7 @@
 .book {
     text-align: center;
-    max-width: 800px;
-    box-sizing: border-box;
     padding: 20px;
-    margin: 0px auto;
-    background-color: rgb(243, 243, 243);
-    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 1px solid RGB(0,0,0,0.2)
 }
 
 .book div span, .updates li span {

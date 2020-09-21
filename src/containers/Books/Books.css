@@ -1,3 +1,11 @@
+.books-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
 #books {
-    padding: 10px;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 10px auto;
 }

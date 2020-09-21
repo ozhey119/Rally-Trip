@@ -13,12 +13,15 @@ const Book = ({ bookInfo = {}, images = [] }) => {
         updates = '',
         gas_station = ''
     } = bookInfo;
+
     const updatesList = updates.map((update, index) =>
         <li key={index}>
             <span>{update.date}:</span>
             <span>{update.content}</span>
         </li>);
+
     let updatesField;
+    
     const imageList = images.map((image, index) => <img src={image} alt='pic' key={index} />)
     if (updates.length)
         updatesField = <>

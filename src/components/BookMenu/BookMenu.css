@@ -10,20 +10,27 @@
 
 #active {
     font-weight: 600;
-    border: 2px solid rgba(70, 70, 82, 0.25);
+    border: 1px solid RGB(0,0,0,0.2);
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: -1px;
+    border-bottom: none;
+    background-color: white;
 }
+
 .book-menu li {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
     padding: 13px; 
-    margin: 3px;
     cursor: pointer;
-    background-color: aliceblue;
-    border: 2px solid rgba(70, 70, 82, 0.15);
-    border-radius: 8px;
+
 }
+
+.book-menu li:first-child, .book-menu li:last-child {
+    margin: 0px;
+}
+
 
 @media screen and (max-width: 767px) {
     .book-menu li {
