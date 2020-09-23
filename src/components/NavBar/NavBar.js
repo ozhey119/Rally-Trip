@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './NavBar.css';
 import logo from '../../images/logos/logoGlow.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const NavBar = ({ setSideDrawerOpen, subLinks }) => {
@@ -30,7 +30,9 @@ const NavBar = ({ setSideDrawerOpen, subLinks }) => {
                     {dropdown}
                 </li>
             </ul>
-            <img src={logo} alt='Rally Trip' className='logo' />
+            <Link to='/'>
+                <img src={logo} alt='Rally Trip' className='logo' />
+            </Link>
             <ul className='nav-links'>
                 <li><NavLink to="/rally-abroad" activeClassName="nav-active">ראליים בחו"ל</NavLink></li>
                 <li><NavLink to="/nav-guide" activeClassName="nav-active">הדרכות ניווט</NavLink></li>
