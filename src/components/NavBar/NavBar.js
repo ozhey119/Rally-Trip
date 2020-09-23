@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
-import logo from '../../logo.png';
-import logoMini from '../../logo-mini.png';
+import logo from '../../images/logos/logoGlow.png';
+import { NavLink } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = ({ setSideDrawerOpen, subLinks }) => {
+    const [showDropdown, setShowDropdown] = useState(false)
+    let dropdown;
+    if (showDropdown) {
+        dropdown =
+            <ul className='dropdown'>
+                {subLinks}
+            </ul>
+    }
 
     return (
         <div id='navbar'>
-            <img src={logoMini} alt='Rally Trip' id='logo-mini' />
-            <ul className='nav-links right'>
-                <li>בית</li>
-                <li>סיפורי דרך</li>
-                <li>ספרי דרך</li>
-                <li>מדי מרחק</li>
+            <button className='hamburger' onClick={() => setSideDrawerOpen((prevState) => !prevState)}>
+                <div className='line'></div>
+                <div className='line'></div>
+                <div className='line'></div>
+            </button>
+            <ul className='nav-links'>
+                <li><NavLink exact to="/" activeClassName="nav-active">בית</NavLink></li>
+                <li onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
+                    <NavLink to="/products" activeClassName="nav-active" >
+                        מוצרים
+                    </NavLink>
+                    {dropdown}
+                </li>
             </ul>
-            <img src={logo} alt='Rally Trip' id='logo' />
-            <ul className='nav-links left'>
-                <li>מכשירי GPS</li>
-                <li>מצלמות אקסטרים</li>
-                <li>ראליים בחו"ל</li>
-                <li>הדרכות ניווט</li>
+            <img src={logo} alt='Rally Trip' className='logo' />
+            <ul className='nav-links'>
+                <li><NavLink to="/rally-abroad" activeClassName="nav-active">ראליים בחו"ל</NavLink></li>
+                <li><NavLink to="/nav-guide" activeClassName="nav-active">הדרכות ניווט</NavLink></li>
             </ul>
         </div>
     );

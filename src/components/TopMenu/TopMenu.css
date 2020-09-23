@@ -1,0 +1,40 @@
+.top-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    margin: 0px auto;
+    box-sizing: border-box;
+    border: 1px solid RGB(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.top-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.top-menu li:not(:last-child) {
+    border-left: 1px solid RGB(0, 0, 0, 0.2);
+}
+
+.top-menu li a {
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.top-menu .active {
+    background-color: RGB(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 767px) {
+    .top-menu {
+        display: none;
+    }
+}

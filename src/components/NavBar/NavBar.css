@@ -4,15 +4,20 @@
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
     justify-content: center;
+    align-items: center;
+    background-color: #0f0f0f;
     box-shadow: 0px 2px 5px -4px black;
     z-index: 100;
-    font-size: 14px;
     font-weight: bold;
+    color: white;
 }
+
+/* The container of all of the links */
 
 #navbar .nav-links {
     height: 100%;
@@ -21,28 +26,94 @@
     align-items: center;
 }
 
-#navbar .nav-links li {
-    padding: 10px;
+.nav-active, #navbar .nav-links>li>a:hover {
+    box-shadow: 0px -3px 0px yellow inset;
+    color: yellow;
 }
 
-#logo, #logo-mini {
-    display: none;
+/* The links */
+
+#navbar .nav-links>li {
+    margin: 0px 10px;
+    position: relative;
+}
+
+#navbar .nav-links>li>a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 60px;
+}
+
+.logo {
+    display: block;
+    height: auto;
+    width: 140px;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+/* Hamburger */
+
+.hamburger {
+    height: 30%;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.line {
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    width: 20px;
 }
 
 @media only screen and (max-width: 768px) {
-    #logo-mini {
-        display: block;
-        height: 100%;
-        padding: 7px;
-        box-sizing: border-box;
+    #navbar {
+        display: flex;
+    }
+    #navbar .nav-links {
+        display: none;
+    }
+    .logo {
+        width: 100px;
     }
 }
 
 @media only screen and (min-width: 769px) {
-    #logo {
-        display: block;
-        height: 100%;
-        padding: 3px;
-        box-sizing: border-box;
+    .hamburger {
+        display: none;
     }
+}
+
+/*============== dropdown =============*/
+
+#navbar .dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.15);
+}
+
+#navbar .dropdown .subitem {
+    margin-top: 0px;
+    display: block;
+    color: black;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-weight: normal;
+}
+
+#navbar .dropdown .subitem.active {
+    font-weight: 600;
+    border-right: 4px solid rgba(0, 0, 0, 0.15);
 }
