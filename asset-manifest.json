@@ -1,34 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.fcfcbda9.chunk.css",
-    "main.js": "/static/js/main.4a3eb633.chunk.js",
-    "main.js.map": "/static/js/main.4a3eb633.chunk.js.map",
+    "main.css": "/static/css/main.b9832247.chunk.css",
+    "main.js": "/static/js/main.0494496f.chunk.js",
+    "main.js.map": "/static/js/main.0494496f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4af83a02.js",
     "runtime-main.js.map": "/static/js/runtime-main.4af83a02.js.map",
-    "static/js/2.3f49ef19.chunk.js": "/static/js/2.3f49ef19.chunk.js",
-    "static/js/2.3f49ef19.chunk.js.map": "/static/js/2.3f49ef19.chunk.js.map",
+    "static/js/2.632c538f.chunk.js": "/static/js/2.632c538f.chunk.js",
+    "static/js/2.632c538f.chunk.js.map": "/static/js/2.632c538f.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f713145b26943be0217a38953ecff662.js": "/precache-manifest.f713145b26943be0217a38953ecff662.js",
+    "precache-manifest.c30ea02921ece22de9dddd2b0b9715ae.js": "/precache-manifest.c30ea02921ece22de9dddd2b0b9715ae.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.fcfcbda9.chunk.css.map": "/static/css/main.fcfcbda9.chunk.css.map",
-    "static/js/2.3f49ef19.chunk.js.LICENSE.txt": "/static/js/2.3f49ef19.chunk.js.LICENSE.txt",
-    "static/media/10.jpg": "/static/media/10.a8fc949e.jpg",
-    "static/media/11.jpg": "/static/media/11.c54287fc.jpg",
-    "static/media/20.jpg": "/static/media/20.a981a899.jpg",
-    "static/media/21.jpg": "/static/media/21.2a8e4371.jpg",
-    "static/media/30.jpg": "/static/media/30.4b515eb1.jpg",
-    "static/media/31.jpg": "/static/media/31.9751db6b.jpg",
-    "static/media/32.jpg": "/static/media/32.7af44d25.jpg",
-    "static/media/IMG-20200523-WA0008.jpg": "/static/media/IMG-20200523-WA0008.cb4ed735.jpg",
+    "static/css/main.b9832247.chunk.css.map": "/static/css/main.b9832247.chunk.css.map",
+    "static/js/2.632c538f.chunk.js.LICENSE.txt": "/static/js/2.632c538f.chunk.js.LICENSE.txt",
+    "static/media/Rally Trip 1.png": "/static/media/Rally Trip 1.3b1deeed.png",
+    "static/media/Rally Trip 2.png": "/static/media/Rally Trip 2.3b1deeed.png",
+    "static/media/Rally Trip 3.png": "/static/media/Rally Trip 3.43954aff.png",
+    "static/media/Reader.png": "/static/media/Reader.198f33d0.png",
     "static/media/WhatsApp.png": "/static/media/WhatsApp.43d114ae.png",
-    "static/media/image.jpg": "/static/media/image.90e4d25e.jpg",
-    "static/media/image1.jpg": "/static/media/image1.cb1de287.jpg",
-    "static/media/image2.jpg": "/static/media/image2.73dcd0d0.jpg"
+    "static/media/contact.svg": "/static/media/contact.7e26a2df.svg",
+    "static/media/landing.jpg": "/static/media/landing.6ea8f881.jpg",
+    "static/media/rally3.png": "/static/media/rally3.75d5f1ea.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4af83a02.js",
-    "static/js/2.3f49ef19.chunk.js",
-    "static/css/main.fcfcbda9.chunk.css",
-    "static/js/main.4a3eb633.chunk.js"
+    "static/js/2.632c538f.chunk.js",
+    "static/css/main.b9832247.chunk.css",
+    "static/js/main.0494496f.chunk.js"
   ]
 }
