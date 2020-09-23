@@ -10,13 +10,14 @@
     transition: all 0.5s;
     cursor: pointer;
     height: 30px;
+    margin-top: 15px;
 }
 
 /* Style Hamburger*/
 
 .bar1, .bar3 {
     display: inline-block;
-    width: 100px;
+    width: 40px;
     height: 1px;
     background-color: rgb(130, 130, 130);
     margin: 7px 0px;
@@ -46,14 +47,14 @@
 
 .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-15px, 15px);
 }
 
 /* Rotate last bar */
 
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(10px, 0px);
-    transform: rotate(45deg) translate(-12px, -12px);
+    transform: rotate(45deg) translate(-3px, -3px);
 }
 
 /* Fade out the second bar */
@@ -69,6 +70,7 @@
 /*========= Mobile Menu ==================*/
 
 .mobile-menu {
+    margin-top: 20px;
     display: block;
     overflow: hidden;
     text-align: center;
@@ -81,7 +83,7 @@
 
 .menu-show {
     /*Max height must match the real height, otherwise the animation will not work correctly!*/
-    max-height: 137px;
+    max-height: 132px;
 }
 
 .mobile-menu li a {

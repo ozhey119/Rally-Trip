@@ -20,7 +20,7 @@ const SideDrawer = ({ sideDrawerOpen, subLinks }) => {
             <div className='sidedrawer-item'>
                 <img className='side-icon' src={contactSVG} alt="" />
                  התחבר
-                 </div>
+            </div>
         </nav>
     );
 }
