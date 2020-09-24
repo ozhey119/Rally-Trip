@@ -10,8 +10,7 @@ const NavBar = ({ subLinks }) => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false)
     let location = useLocation();
-    let backdrop;
-    let dropdown;
+    let backdrop, dropdown;
 
     if (sideDrawerOpen) {
         backdrop = <BackDrop setWindowOpen={setSideDrawerOpen} />
