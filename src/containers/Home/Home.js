@@ -5,7 +5,7 @@ import landingImage from '../../images/landing.jpg'
 const Home = () => {
 
     return (
-        <div className ='page-container'>
+        <div id ='home'>
             <img className = 'landing-image' src={landingImage} alt='Rally' />
         </div>
     );

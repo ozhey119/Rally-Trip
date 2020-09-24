@@ -1,3 +1,9 @@
+#home {
+    /*The calculation of min height is used to place footer at the bottom. 
+        it goes like this: 60px for the navbar, 20 for the page's padding and 32 for the footer*/
+    min-height: calc(100vh - 92px);
+}
+
 .landing-image {
     object-fit: cover;
     min-width: 100%;
