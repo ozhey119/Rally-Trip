@@ -8,13 +8,13 @@ const ProductPreview = ({ item }) => {
         <Link to={`/products/${item.category}/${item.id}`} >
             <article className='preview-container'>
                 <div className='preview-top'>
-                    <img className='preview-img' src={require(`../../images/roadbooks/${item.title}.png`)} alt='product' />
+                    <img className='preview-img' src={require(`../../images/products/${item.title}.png`)} alt='product' />
                 </div>
                 <div className='preview-bot'>
-                    <div style={{ fontWeight: 'bold' }}>{item.title}</div>
+                    <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{item.title}</div>
                     <div className='divider'></div>
-                    <div>₪{item.price}</div>
-                    <button class = 'btn'>לפרטים נוספים</button>
+                    <div>{item.price.length ? `₪${item.price}` : 'בקרוב..'}</div>
+                    <button className='btn'>לפרטים נוספים</button>
                 </div>
             </article>
         </Link>

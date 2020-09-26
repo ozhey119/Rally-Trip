@@ -1,6 +1,21 @@
-.products-container {
-    padding: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+ .products-page {
+     display: flex;
+ }
+
+ .products-container {
+     padding: 10px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+
+
+ @media screen and (max-width: 767px) {
+     .products-page {
+         flex-direction: column;
+     }
+     .top-menu {
+         display: none;
+     }
+ }

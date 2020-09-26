@@ -1,5 +1,5 @@
 import React from 'react';
-import TopMenu from '../../components/TopMenu/TopMenu';
+import SideMenu from '../../components/SideMenu/SideMenu';
 import MobileDropdown from '../../components/MobileDropdown/MobileDropdown';
 import ProductPreview from '../../components/Product/ProductPreview';
 import ProductPage from '../../components/Product/ProductPage';
@@ -14,13 +14,13 @@ const Items = ({ links }) => {
         .map((product) => <ProductPreview key={product.id} item={product} />)
 
     return (
-        <div className='page-container'>
+        <div className='page-container products-page'>
             <Switch>
                 <Route path='/products/:category/:id'>
                     <ProductPage />
                 </Route>
                 <Route exact path={["/products/:category", "/products"]}>
-                    <TopMenu>{links}</TopMenu>
+                    <SideMenu>{links}</SideMenu>
                     <MobileDropdown>{links}</MobileDropdown>
                     <div className='products-container'>
                         {itemList}

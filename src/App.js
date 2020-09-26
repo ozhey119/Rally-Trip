@@ -11,12 +11,11 @@ const App = () => {
 
     const subLinks =
         <>
-            <li><NavLink exact to={`/products`} activeClassName='active' className='subitem'>כל המוצרים</NavLink></li>
             <li><NavLink to={`/products/roadbooks`} activeClassName='active' className='subitem'>סיפורי דרך</NavLink></li>
-            <li><NavLink to={`/products/readers`} activeClassName='active' className='subitem'>ספרי דרך</NavLink></li>
+            <li><NavLink to={`/products/roadbook-holders`} activeClassName='active' className='subitem'>ספרי דרך</NavLink></li>
+            <li><NavLink to={`/products/icos`} activeClassName='active' className='subitem'>מדי מרחק</NavLink></li>
+            <li><NavLink to={`/products/garmin`} activeClassName='active' className='subitem'>גרמין</NavLink></li>
             <li><NavLink to={`/products/gopro`} activeClassName='active' className='subitem'>מצלמות גו פרו</NavLink></li>
-            <li><NavLink to={`/products/gps`} activeClassName='active' className='subitem'>מכשירי GPS</NavLink></li>
-            <li><NavLink to={`/products/odometers`} activeClassName='active' className='subitem'>מדי מרחק</NavLink></li>
         </>
 
 

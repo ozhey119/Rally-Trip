@@ -1,84 +1,119 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import MakeContact from './MakeContact';
 import booksInformation from '../../ProductsInformation.json'
+import FacebookColor from '../../icons/FacebookColor.png';
+import WhatsAppColor from '../../icons/WhatsAppColor.png';
+import MailColor from '../../icons/MailColor.png';
 import { Link } from 'react-router-dom';
+
 import './Product.css';
 
 const ProductPage = () => {
     let { id, category: categoryUrl } = useParams();
-
+    if (!booksInformation[id - 1]) return <div>לא נמצא מוצר</div>;
     const {
         title = '',
         description = '',
-        length = '',
-        row_number = '',
-        starting_point = '',
-        ending_point = '',
-        updates = [],
-        gas_station = '',
         price = '',
+        category, id: _, subcategory: __,
+        ...restFields
     } = booksInformation[id - 1];
 
-    const updatesList = updates.map((update, index) =>
-        <li key={index}>
-            <span>{update.date}:</span>
-            <span>{update.content}</span>
-        </li>);
-
-    let updatesField;
-
-    if (updates.length)
-        updatesField = <>
-            <div style={{ fontWeight: '600', textDecorationLine: 'underline', padding: "5px" }}>עדכונים</div>
-            <ul className='updates'>{updatesList}</ul>
-        </>
+    let extraFields = Object.entries(restFields).map((field) => {
+        if (Array.isArray(field[1])) {
+            return (
+                <React.Fragment key={field[0]}>
+                    <h4>{mapKeyToHebrew(field[0].toString())}</h4>
+                    <ul>
+                        {field[1].map((subField, index) =>
+                            <li key={index} className='data-field'>
+                                {Object.entries(subField).map((sub) =>
+                                    <span key={sub[0]}>{sub[1]}</span>
+                                )}
+                            </li>
+                        )}
+                    </ul>
+                </React.Fragment>
+            )
+        } else {
+            return (
+                <div key={field[0]} className='data-field'>
+                    <span>{mapKeyToHebrew(field[0].toString())}:</span>
+                    <span>{field[1].toString()}</span>
+                </div>
+            )
+        }
+    })
 
     return (
-        <article >
-            <Link to={`/`}>בית</Link> /
-            <Link to={`/products`}> כל המוצרים</Link> /
-            <Link to={`/products/${categoryUrl}`}> קטגוריה</Link>
+        <article style={{ width: '100%' }}>
+            <section style={{ paddingBottom: '10px' }}>
+                <Link to={`/`}>בית</Link> &#x203A;
+                <Link to={`/products`}> כל המוצרים</Link> &#x203A;
+                <Link to={`/products/${categoryUrl}`}> {mapCategoryUrlToCategoryName(categoryUrl)} </Link> &#x203A;
+                <span> {title}</span>
+            </section>
             <div className='product-grid'>
                 <div className='img-container'>
-                    <img src={require(`../../images/roadbooks/${title}.png`)} alt='product' />
+                    <img src={require(`../../images/products/${title}.png`)} alt='product' />
                 </div>
                 <div className='product-information'>
-                    <h2>
-                        {title}
-                    </h2>
-                    <h4>
-                        {description}
-                    </h4>
-                    <div>
-                        <span>{'נקודת זינוק:'}</span>
-                        <span>{starting_point}</span>
-                    </div>
-                    <div>
-                        <span>{'נקודת סיום:'}</span>
-                        <span>{ending_point}</span>
-                    </div>
-                    <div>
-                        <span>{'אורך המסלול:'}</span>
-                        <span>{length}</span>
-                    </div>
-                    <div>
-                        <span>{'שורות:'}</span>
-                        <span>{row_number}</span>
-                    </div>
-                    <div>
-                        <span>{'תחנת דלק:'}</span>
-                        <span>{gas_station}</span>
-                    </div>
-                    {updatesField}
-                    <div>
-                        <span>{'מחיר:'}</span>
-                        <span>₪{price}</span>
+                    <h2>{title}</h2>
+                    <div className='divider'></div>
+                    <div className='price'>{price.length ? `₪${price}` : 'בקרוב..'}</div>
+                    <h4>{description}</h4>
+                    <MakeContact />
+                    <div className='icons'>
+                        <a href="https://wa.me/972505562519"><img src={WhatsAppColor} alt="WhatsApp" /></a>
+                        <a href="https://www.facebook.com/RallyTrip"><img src={FacebookColor} alt="Facebook" /></a>
+                        <a href="mailto:119raz@walla.com"><img src={MailColor} alt="Mail" /></a>
                     </div>
                 </div>
+                <div className='grid-bottom'>
+                    <div >פרטים נוספים</div>
+                    <div>{extraFields}</div>
+                </div>
             </div>
-            <div style={{ fontWeight: 'bold', textAlign: 'center', fontSize: '20px' }}>לרכישה צור קשר עם רז: 050-556-2519</div>
-        </article>
+        </article >
     );
 }
+
+function mapCategoryUrlToCategoryName(categoryUrl) {
+    switch (categoryUrl) {
+        case 'roadbooks':
+            return 'סיפורי דרך'
+        case 'roadbook-holders':
+            return 'ספרי דרך'
+        case 'gopro':
+            return 'מצלמות גופרו'
+        case 'icos':
+            return 'מדי מרחק'
+        case 'garmin':
+            return 'גרמין'
+        default:
+            return ''
+    }
+}
+
+function mapKeyToHebrew(key) {
+    switch (key) {
+        case 'starting_point':
+            return 'נקודת זינוק'
+        case 'ending_point':
+            return 'נקודת סיום'
+        case 'length':
+            return 'אורך המסלול'
+        case 'row_number':
+            return 'מספר שורות'
+        case 'gas_station':
+            return 'תחנות דלק'
+        case 'updates':
+            return 'עדכונים'
+        default:
+            return '';
+    }
+}
+
 
 export default ProductPage;

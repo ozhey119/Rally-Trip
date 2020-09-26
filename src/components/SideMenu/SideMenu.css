@@ -1,0 +1,35 @@
+.sidemenu-container {
+    padding: 10px;
+}
+
+.sidemenu-container h3 {
+    padding: 20px 10px;
+}
+
+.sidemenu-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.sidemenu-list li a {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.sidemenu-list .active {
+    font-weight: 600;
+    border-right: 2px solid rgb(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 767px) {
+    .sidemenu-container {
+        display: none;
+    }
+}

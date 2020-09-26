@@ -1,13 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-family: "Heebo", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: rtl;
   padding-top: 60px;
 }
+
+@font-face {
+  font-family: 'Heebo-VariableFont_wght';
+  src: local('Heebo-VariableFont_wght'), url(./fonts/Heebo-VariableFont_wght.ttf) format('truetype');
+}
+
 * {
+  font-family: 'Heebo-VariableFont_wght', Arial, Helvetica, sans-serif;
   padding: 0px;
   margin: 0px;
 }
@@ -22,7 +27,6 @@ button {
   background-color: inherit;
   cursor: pointer;
 }
-
 
 li {
   list-style: none;
