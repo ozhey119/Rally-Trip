@@ -1,6 +1,5 @@
 import React from 'react';
 import PhoneColor from '../../icons/PhoneColor.png';
-import Copy from '../../icons/Copy.png';
 import './MakeContact.css';
 
 const copyPhoneNumber = () => {
