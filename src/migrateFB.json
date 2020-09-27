@@ -1,10 +1,9 @@
 [
     {
-        "id": "1",
         "category": "roadbooks",
         "title": "Rally Trip 1",
         "description": "מסלול מעגלי קצר ברמת קושי נמוכה, לתרגול יסודות הניווט על פי סיפור דרך. המסלול מתאים לאופנועים ורכבים.",
-        "price": "300",
+        "price": 300,
         "extra": {
             "starting_point": "N32.29.171 E34.58.411 - האקליפטוס הגדול, פרדס חנה",
             "ending_point": "N32.29.171 E34.58.411 - האקליפטוס הגדול, פרדס חנה",
@@ -14,11 +13,10 @@
         }
     },
     {
-        "id": "2",
         "category": "roadbooks",
         "title": "Rally Trip 2",
         "description": "מסלול מעגלי באיזור בקעת הנדיב ויער חוף כרמל, המתאים גם לרוכבים על אופנועי אדוונצ'ר גדולים ורכבים. הניווט מאתגר אך אינו מחייב נסיון קודם. ",
-        "price": "300",
+        "price": 300,
         "extra": {
             "starting_point": "N32.29.171 E34.58.411 - האקליפטוס הגדול, פרדס חנה",
             "ending_point": "N32.29.171 E34.58.411 - האקליפטוס הגדול, פרדס חנה",
@@ -28,11 +26,10 @@
         }
     },
     {
-        "id": "3",
         "category": "roadbooks",
         "title": "Rally Trip 3",
         "description": "מסלול מעגלי ארוך ברמת קושי גבוהה, גם מבחינה ניווטית וגם מבחינת התוואי. המסלול מתפתל בשבילי רמות מנשה ועמק יזרעאל, אפשרי לאופנועים ולרכבים וכולל 2 עליות תלולות ומאתגרות המתאימות לרוכבים מנוסים בלבד (ניתן לאגף את העליות).",
-        "price": "300",
+        "price": 300,
         "extra": {
             "starting_point": "N32.30.646 E34.57.457 - צומת גבעת עדה",
             "ending_point": "N32.30.446 E34.57.565 - צומת גבעת עדה",
@@ -60,276 +57,240 @@
         }
     },
     {
-        "id": "4",
         "category": "roadbook-holders",
         "subcategory": "holders",
         "title": "ספר דרך RB850",
         "description": "",
-        "price": "1,500"
+        "price": 1500
     },
     {
-        "id": "5",
         "category": "roadbook-holders",
         "subcategory": "accessories",
         "title": "כבל חוטים חשופים",
         "description": "",
-        "price": "45"
+        "price": 45
     },
     {
-        "id": "6",
         "category": "roadbook-holders",
         "subcategory": "accessories",
         "title": "כיסוי חיווט H3D",
         "description": "",
-        "price": "190"
+        "price": 190
     },
     {
-        "id": "7",
         "category": "icos",
         "title": "מיגון לאנטנת GPS",
         "description": "",
-        "price": "40"
+        "price": 40
     },
     {
-        "id": "8",
         "category": "roadbook-holders",
         "subcategory": "accessories",
         "title": "מפסק הפעלה",
         "description": "",
-        "price": "175"
+        "price": 175
     },
     {
-        "id": "9",
         "category": "roadbook-holders",
         "subcategory": "accessories",
         "title": "מפסק קומבו",
         "description": "",
-        "price": "1,080"
+        "price": 1080
     },
     {
-        "id": "10",
         "category": "roadbook-holders",
         "subcategory": "mounts",
         "title": "מתאם כידון",
         "description": "",
-        "price": "160"
+        "price": 160
     },
     {
-        "id": "11",
         "category": "roadbook-holders",
         "subcategory": "mounts",
         "title": "מתאם לICO וספר RMS",
         "description": "",
-        "price": "320"
+        "price": 320
     },
     {
-        "id": "12",
         "category": "roadbook-holders",
         "subcategory": "mounts",
         "title": "מתאם לICO וספר H3D",
         "description": "",
-        "price": "350"
+        "price": 350
     },
     {
-        "id": "13",
         "category": "roadbook-holders",
         "subcategory": "accessories",
         "title": "קופסת מתח",
         "description": "",
-        "price": "490"
+        "price": 490
     },
     {
-        "id": "14",
         "category": "roadbook-holders",
         "subcategory": "mounts",
         "title": "תושבת כידון H3D",
         "description": "",
-        "price": "580"
+        "price": 580
     },
     {
-        "id": "15",
         "category": "roadbook-holders",
         "subcategory": "mounts",
         "title": "תושבת כידון RMS",
         "description": "",
-        "price": "600"
+        "price": 600
     },
     {
-        "id": "16",
         "category": "icos",
         "title": "כבל מתח",
         "description": "",
-        "price": "120"
+        "price": 120
     },
     {
-        "id": "17",
         "category": "icos",
         "title": "לחצני הפעלה",
         "description": "",
-        "price": "240"
+        "price": 240
     },
     {
-        "id": "18",
         "category": "icos",
         "title": "אנטנת GPS",
         "description": "",
-        "price": "350"
+        "price": 350
     },
     {
-        "id": "19",
         "category": "icos",
         "title": "מגנט קטם",
         "description": "",
-        "price": "50"
+        "price": 50
     },
     {
-        "id": "20",
         "category": "icos",
         "title": "קיט מגנט",
         "description": "",
-        "price": "50"
+        "price": 50
     },
     {
-        "id": "21",
         "category": "icos",
         "title": "מגן כבל סנסור",
         "description": "",
-        "price": "50"
+        "price": 50
     },
     {
-        "id": "22",
         "category": "icos",
         "title": "כבל סנסור",
         "description": "",
-        "price": "280"
+        "price": 280
     },
     {
-        "id": "23",
         "category": "icos",
         "title": "ICO Rally Max G",
         "description": "",
-        "price": "1,900"
+        "price": 1900
     },
     {
-        "id": "24",
         "category": "roadbook-holders",
         "title": "תושבת לאנטנת GPS",
         "description": "",
-        "price": "75"
+        "price": 75
     },
     {
-        "id": "25",
         "category": "roadbook-holders",
         "title": "גומיות למכסה RB850",
         "description": "",
-        "price": "40"
+        "price": 40
     },
     {
-        "id": "26",
         "category": "roadbook-holders",
         "title": "מכסה לספר RB750",
         "description": "",
-        "price": "190"
+        "price": 190
     },
     {
-        "id": "27",
         "category": "roadbook-holders",
         "title": "מכסה לספר RB850",
         "description": "",
-        "price": "190"
+        "price": 190
     },
     {
-        "id": "28",
         "category": "roadbook-holders",
         "title": "גומיות חלופיות",
         "description": "",
-        "price": "80"
+        "price": 80
     },
     {
-        "id": "29",
         "category": "roadbook-holders",
         "title": "תאורת לד פנימית",
         "description": "",
-        "price": "90"
+        "price": 90
     },
     {
-        "id": "30",
         "category": "roadbook-holders",
         "title": "כבל הזנה ספר דרך",
         "description": "",
-        "price": "210"
+        "price": 210
     },
     {
-        "id": "31",
         "category": "garmin",
         "subcategory": "devices",
         "title": "Edge 1030 Plus",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "32",
         "category": "garmin",
         "subcategory": "devices",
         "title": "eTrex 10",
         "description": "",
-        "price": "580"
+        "price": 580
     },
     {
-        "id": "33",
         "category": "garmin",
         "subcategory": "devices",
         "title": "eTrex 22x",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "34",
         "category": "garmin",
         "subcategory": "devices",
         "title": "eTrex 32x",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "35",
         "category": "garmin",
         "subcategory": "watches",
         "title": "Forerunner 45",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "36",
         "category": "garmin",
         "subcategory": "watches",
         "title": "Forerunner 245",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "37",
         "category": "garmin",
         "subcategory": "watches",
         "title": "Forerunner 745",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "38",
         "category": "garmin",
         "subcategory": "devices",
         "title": "GPSMAP 276Cx",
         "description": "",
-        "price": "2,900"
+        "price": 2900
     },
     {
-        "id": "39",
         "category": "garmin",
         "subcategory": "devices",
         "title": "Montana 610",
         "description": "",
-        "price": "2,280"
+        "price": 2280
     },
     {
         "id": "40",
@@ -337,92 +298,81 @@
         "subcategory": "devices",
         "title": "Montana 700",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "41",
         "category": "garmin",
         "subcategory": "watches",
         "title": "Forerunner 945",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "42",
         "category": "garmin",
         "subcategory": "watches",
         "title": "fenix 6 Sapphire",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "43",
         "category": "garmin",
         "subcategory": "watches",
         "title": "fenix 6X Sapphire",
         "description": "",
-        "price": "3,500"
+        "price": 3500
     },
     {
-        "id": "44",
         "category": "garmin",
         "subcategory": "watches",
         "title": "fenix 6X Solar",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "45",
         "category": "garmin",
         "subcategory": "mounts",
         "title": "תושבת כידון eTrex",
         "description": "",
-        "price": "70"
+        "price": 70
     },
     {
-        "id": "46",
         "category": "garmin",
         "subcategory": "mounts",
         "title": "תושבת כידון לMontana",
         "description": "",
-        "price": "220"
+        "price": 220
     },
     {
-        "id": "47",
         "category": "garmin",
         "subcategory": "mounts",
         "title": "תושבת לכידון Montana 700",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "48",
         "category": "garmin",
         "subcategory": "mounts",
         "title": "תושבת לMontana כולל כבל",
         "description": "",
-        "price": "280"
+        "price": 280
     },
     {
-        "id": "49",
         "category": "garmin",
         "subcategory": "mounts",
         "title": "תושבת לMontana 700 כולל כבל",
         "description": "",
-        "price": ""
+        "price": 0
     },
     {
-        "id": "50",
         "category": "roadbook-holders",
         "title": "ספר דרך RB850 ואביזריו",
         "description": "",
-        "price": "1,900"
+        "price": 1900
     },
     {
-        "id": "51",
         "category": "roadbook-holders",
         "title": "לחצני הפעלה לICO שני",
         "description": "",
-        "price": "240"
+        "price": 240
     }
 ]

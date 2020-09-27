@@ -16,11 +16,10 @@ const ProductPage = () => {
         title = '',
         description = '',
         price = '',
-        category, id: _, subcategory: __,
-        ...restFields
+        extra = {}
     } = booksInformation[id - 1];
 
-    let extraFields = Object.entries(restFields).map((field) => {
+    let extraFields = Object.entries(extra).map((field) => {
         if (Array.isArray(field[1])) {
             return (
                 <React.Fragment key={field[0]}>
