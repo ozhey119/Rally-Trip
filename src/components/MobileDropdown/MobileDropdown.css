@@ -83,12 +83,19 @@
 
 .menu-show {
     /*Max height must match the real height, otherwise the animation will not work correctly!*/
-    max-height: 132px;
+    max-height: 315px;
 }
 
-.mobile-menu li a {
+.mobile-menu li>a {
+    font-size: 18px;
     display: block;
     padding: 2px;
+}
+
+.mobile-menu li ul a {
+    display: block;
+    padding: 2px;
+    font-size: 14px;
 }
 
 .mobile-menu li a.active {

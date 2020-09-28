@@ -11,7 +11,7 @@ import './Products.css';
 const Products = ({ links }) => {
     const [information, setInformation] = useState([]);
     const [products, setProducts] = useState([]);
-    let { category } = useParams();
+    let { category, id } = useParams();
 
     // This hook is used to fetch the information from firebase
     useEffect(() => {
@@ -26,17 +26,17 @@ const Products = ({ links }) => {
     // This hook is used for filtering
     useEffect(() => {
         let productsTemp = Object.keys(information)
-        .filter((id) => (!category || category === information[id].category))
-        .map(id => <ProductPreview key={id} product={information[id]} />)
+            .filter((id) => (!category || category === information[id].category || category === information[id].subcategory))
+            .map(id => <ProductPreview key={id} product={information[id]} id={id} />)
         setProducts(productsTemp);
-    }, [category])
+    }, [category, information])
 
 
     return (
         <div className='page-container products-page'>
             <Switch>
                 <Route path='/products/:category/:id'>
-                    <ProductPage />
+                    <ProductPage product={information[id]} />
                 </Route>
                 <Route exact path={["/products/:category", "/products"]}>
                     <SideMenu>{links}</SideMenu>
