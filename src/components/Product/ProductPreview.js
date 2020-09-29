@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.css';
 
-const ProductPreview = ({ product }) => {
+const ProductPreview = ({ product, id }) => {
 
     return (
-        <Link to={`/products/${product.category}/${product.id}`} >
+        <Link to={`/products/${product.category}/${product.subcategory}/${id}`} >
             <article className='preview-container'>
                 <div className='preview-top'>
                     <img className='preview-img' src={require(`../../images/products/${product.title}.png`)} alt='product' />

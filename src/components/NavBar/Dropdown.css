@@ -1,0 +1,57 @@
+#navbar .dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    text-align: center;
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.15);
+    font-weight: normal;
+}
+
+/*====== styling of the main links ======*/
+
+#navbar .dropdown>li {
+    position: relative;
+}
+
+#navbar .dropdown>li>a {
+    margin-top: 0px;
+    display: block;
+    color: black;
+    background-color: #fff;
+    padding: 15px 20px;
+}
+
+#navbar .dropdown>li>a.active {
+    font-weight: 600;
+    border-right: 4px solid rgba(0, 0, 0, 0.15);
+}
+
+#navbar .dropdown>li>a:hover {
+    border-right: 4px solid rgba(0, 0, 0, 0.15);
+}
+
+/*============ dropdown submenu ============*/
+
+.dropdown .submenu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-100%, 0%);
+    color: black;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05)
+}
+
+.dropdown .submenu li a {
+    display: block;
+    color: black;
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+.dropdown .submenu li a.active {
+    font-weight: 600;
+}

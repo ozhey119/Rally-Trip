@@ -5,30 +5,20 @@ import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
 import './App.css';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
 
-    const subLinks =
-        <>
-            <li><NavLink to={`/products/roadbooks`} activeClassName='active' className='subitem'>סיפורי דרך</NavLink></li>
-            <li><NavLink to={`/products/roadbook-holders`} activeClassName='active' className='subitem'>ספרי דרך</NavLink></li>
-            <li><NavLink to={`/products/icos`} activeClassName='active' className='subitem'>מדי מרחק</NavLink></li>
-            <li><NavLink to={`/products/garmin`} activeClassName='active' className='subitem'>גרמין</NavLink></li>
-            <li><NavLink to={`/products/gopro`} activeClassName='active' className='subitem'>מצלמות גו פרו</NavLink></li>
-        </>
-
-
     return (
         <main className='main'>
-            <NavBar subLinks={subLinks} />
+            <NavBar />
             <ErrorBoundary>
                 <Switch>
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path={["/products/:category", "/products"]}>
-                        <Products links={subLinks} />
+                    <Route path={["/products/:category/:subcategory/:id", "/products/:category/:subcategory", "/products/:category", "/products"]}>
+                        <Products />
                     </Route>
                     <Route path="/rally-abroad">
                         <div className='page-container'>rally-abroad</div>

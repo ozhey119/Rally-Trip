@@ -150,6 +150,10 @@
     font-size: 18px;
 }
 
+.breadcrumbs {
+    padding-bottom: 10px;
+}
+
 @media only screen and (max-width: 767px) {
     /*========== Product Preview =============*/
     .preview-img {
@@ -165,4 +169,8 @@
     .product-information, .product-grid .img-container {
         border: none;
     }
+    .breadcrumbs {
+        font-size: 12.5px;
+    }
+    
 }

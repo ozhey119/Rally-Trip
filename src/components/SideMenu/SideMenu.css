@@ -17,15 +17,24 @@
 .sidemenu-list li a {
     display: inline-block;
     box-sizing: border-box;
-    padding: 5px 10px;
+    padding: 6px 10px;
     width: 100%;
     cursor: pointer;
 }
 
+.sidemenu-list li a.subitem {
+    margin-right: 10px;
+    padding: 3px 10px;
+}
 
 .sidemenu-list .active {
     font-weight: 600;
     border-right: 2px solid rgb(0, 0, 0, 0.15);
+}
+
+.sidemenu-list .subitem.active {
+    font-weight: 600;
+    border: none;
 }
 
 @media screen and (max-width: 767px) {

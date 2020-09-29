@@ -1,66 +1,53 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import MakeContact from './MakeContact';
-import booksInformation from '../../ProductsInformation.json'
+import Breadcrumbs from './Breadcrumbs'
 import FacebookColor from '../../icons/FacebookColor.png';
 import WhatsAppColor from '../../icons/WhatsAppColor.png';
 import MailColor from '../../icons/MailColor.png';
-import { Link } from 'react-router-dom';
+
 
 import './Product.css';
 
-const ProductPage = () => {
-    let { id, category: categoryUrl } = useParams();
-    if (!booksInformation[id - 1]) return <div>לא נמצא מוצר</div>;
-    const {
-        title = '',
-        description = '',
-        price = '',
-        extra = {}
-    } = booksInformation[id - 1];
-
-    let extraFields = Object.entries(extra).map((field) => {
-        if (Array.isArray(field[1])) {
-            return (
-                <React.Fragment key={field[0]}>
-                    <h4>{mapKeyToHebrew(field[0].toString())}</h4>
-                    <ul>
-                        {field[1].map((subField, index) =>
-                            <li key={index} className='data-field'>
-                                {Object.entries(subField).map((sub) =>
-                                    <span key={sub[0]}>{sub[1]}</span>
-                                )}
-                            </li>
-                        )}
-                    </ul>
-                </React.Fragment>
-            )
-        } else {
-            return (
-                <div key={field[0]} className='data-field'>
-                    <span>{mapKeyToHebrew(field[0].toString())}:</span>
-                    <span>{field[1].toString()}</span>
-                </div>
-            )
-        }
-    })
+const ProductPage = ({ product = {} }) => {
+    const { title = '', description = '', price = '', extra = {}, category = '' } = product;
+    let extraFields;
+        extraFields = Object.entries(extra).map((field) => {
+            if (Array.isArray(field[1])) {
+                return (
+                    <React.Fragment key={field[0]}>
+                        <h4>{mapKeyToHebrew(field[0].toString())}</h4>
+                        <ul>
+                            {field[1].map((subField, index) =>
+                                <li key={index} className='data-field'>
+                                    {Object.entries(subField).map((sub) =>
+                                        <span key={sub[0]}>{sub[1]}</span>
+                                    )}
+                                </li>
+                            )}
+                        </ul>
+                    </React.Fragment>
+                )
+            } else {
+                return (
+                    <div key={field[0]} className='data-field'>
+                        <span>{mapKeyToHebrew(field[0].toString())}:</span>
+                        <span>{field[1].toString()}</span>
+                    </div>
+                )
+            }
+        })
 
     return (
         <article style={{ width: '100%' }}>
-            <section style={{ paddingBottom: '10px' }}>
-                <Link to={`/`}>בית</Link> &#x203A;
-                <Link to={`/products`}> כל המוצרים</Link> &#x203A;
-                <Link to={`/products/${categoryUrl}`}> {mapCategoryUrlToCategoryName(categoryUrl)} </Link> &#x203A;
-                <span> {title}</span>
-            </section>
+            <Breadcrumbs title={title} />
             <div className='product-grid'>
                 <div className='img-container'>
-                    <img src={require(`../../images/products/${title}.png`)} alt='product' />
+                    {title ? <img src={require(`../../images/products/${title}.png`)} alt='product' /> : ''}
                 </div>
                 <div className='product-information'>
                     <h2>{title}</h2>
                     <div className='divider'></div>
-                    <div className='price'>{price.length ? `₪${price}` : 'בקרוב..'}</div>
+                    <div className='price'>{price ? `₪${price}` : 'בקרוב..'}</div>
                     <h4>{description}</h4>
                     <MakeContact />
                     <div className='icons'>
@@ -70,29 +57,12 @@ const ProductPage = () => {
                     </div>
                 </div>
                 <div className='grid-bottom'>
-                    <div >פרטים נוספים</div>
+                    {extraFields.length ? <div>פרטים נוספים</div> : ''}
                     <div>{extraFields}</div>
                 </div>
             </div>
         </article >
     );
-}
-
-function mapCategoryUrlToCategoryName(categoryUrl) {
-    switch (categoryUrl) {
-        case 'roadbooks':
-            return 'סיפורי דרך'
-        case 'roadbook-holders':
-            return 'ספרי דרך'
-        case 'gopro':
-            return 'מצלמות גופרו'
-        case 'icos':
-            return 'מדי מרחק'
-        case 'garmin':
-            return 'גרמין'
-        default:
-            return ''
-    }
 }
 
 function mapKeyToHebrew(key) {

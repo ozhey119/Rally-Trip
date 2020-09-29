@@ -3,8 +3,17 @@ import './SideDrawer.css';
 import logo from '../../images/logos/logoGlow.png';
 import { NavLink } from 'react-router-dom';
 import contactSVG from '../../icons/contact.svg';
+import { links } from '../../links';
 
-const SideDrawer = ({ sideDrawerOpen, subLinks }) => {
+let linkItems = links.map(link =>
+    <li key={link.path}>
+        <NavLink to={link.path} activeClassName='active' className='link-item'>
+            {link.name}
+        </NavLink>
+    </li>)
+
+
+const SideDrawer = ({ sideDrawerOpen }) => {
 
     return (
         <nav className={sideDrawerOpen ? 'sidedrawer open' : 'sidedrawer'}>
@@ -12,7 +21,7 @@ const SideDrawer = ({ sideDrawerOpen, subLinks }) => {
             <NavLink exact to="/" activeClassName="active" className='sidedrawer-item'> בית </NavLink>
             <NavLink to="/products" activeClassName="active" className='sidedrawer-item'>מוצרים</NavLink>
             <ul>
-                {subLinks}
+                {linkItems}
             </ul>
             <NavLink to="/rally-abroad" activeClassName="active" className='sidedrawer-item'>ראליים בחו"ל</NavLink>
             <NavLink to="/nav-guide" activeClassName="active" className='sidedrawer-item'>הדרכות ניווט</NavLink>
