@@ -9,7 +9,7 @@ import MailColor from '../../icons/MailColor.png';
 import './Product.css';
 
 const ProductPage = ({ product = {} }) => {
-    const { title = '', description = '', price = '', extra = {}, category = '' } = product;
+    const { title = '', description = '', price = '', extra = {}} = product;
     let extraFields;
         extraFields = Object.entries(extra).map((field) => {
             if (Array.isArray(field[1])) {

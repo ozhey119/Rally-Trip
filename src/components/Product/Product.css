@@ -126,6 +126,7 @@
     padding: 20px;
     grid-column: 2 span;
     background-color: #f5f6f7;
+    white-space: pre-wrap;
 }
 
 .product-information .divider {

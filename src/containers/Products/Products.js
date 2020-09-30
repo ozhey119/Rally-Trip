@@ -4,7 +4,7 @@ import MobileMenu from '../../components/MobileMenu/MobileMenu';
 import ProductPreview from '../../components/Product/ProductPreview';
 import ProductPage from '../../components/Product/ProductPage';
 import { Switch, Route, useParams } from 'react-router-dom';
-import fireDb from "../../firebase";
+import { fireDb } from "../../firebase";
 // import migrate from '../../migrateFB.json'; Used for migrating from the json to firebase
 import './Products.css';
 

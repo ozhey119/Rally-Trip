@@ -1,0 +1,48 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border: 1px solid RGB(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0px auto;
+}
+
+/*========== Style input elements ==========*/
+
+.form input[type=text], .form input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0px;
+    padding: 5px;
+    border: 1px solid RGB(0, 0, 0, 0.15);
+}
+
+.form input[type=text]:focus, .form input[type=password]:focus {
+    border-color: rgb(66, 145, 209);
+}
+
+.form input[type=submit] {
+    margin: 5px 0px;
+    padding: 5px;
+    color: rgba(0, 0, 0, .8);
+    background: #e0e1e2 none;
+    border: none;
+    transition: all 0.3s;
+}
+
+.form input[type=submit]:hover {
+    background: #c9c9c9 none;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.form input[type=text]::placeholder, .form input[type=password]::placeholder {
+    color: rgb(207, 207, 207);
+}
+
+.form input[type=text]:focus::placeholder, .form input[type=password]:focus::placeholder {
+    color: rgb(136, 136, 136);
+}

@@ -26,6 +26,10 @@ body {
   margin: 0px;
 }
 
+*, *:focus, *:hover {
+  outline: none;
+}
+
 a {
   text-decoration: none;
   color: inherit;
