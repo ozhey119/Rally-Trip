@@ -15,7 +15,7 @@ const Products = () => {
 
     // This hook is used to fetch the information from firebase
     useEffect(() => {
-        fireDb.child('products').on('value', snapshot => {
+        fireDb.ref().child('products').once('value', snapshot => {
             if (snapshot.val() != null) {
                 setInformation({ ...snapshot.val() })
             }
@@ -58,7 +58,7 @@ export default Products;
 
         // @@ this code is used to migrate from the json file @@
         // migrate.forEach(product => {
-        //     let newProduct = fireDb.child('products').push();
+        //     let newProduct = fireDb.ref().child('products').push();
         //     newProduct.set(product, (err) => {
         //         if (err)
         //             console.log(err)

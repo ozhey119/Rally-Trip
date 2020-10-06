@@ -1,37 +1,80 @@
 .form {
     display: flex;
     flex-direction: column;
-    width: 250px;
     border: 1px solid RGB(0, 0, 0, 0.1);
     padding: 20px;
     margin: 0px auto;
+    max-width: 960px;
+}
+
+.form.small {
+    width: 250px;
+}
+
+.todo {
+    margin: 10px 0px 20px;
+}
+
+.todo * {
+    padding: 3px;
+    margin: 5px;
 }
 
 /*========== Style input elements ==========*/
 
-.form input[type=text], .form input[type=password] {
+.form input[type=text], .form input[type=password], .form input[type=number], .form textarea, .form select {
     width: 100%;
+    max-width: 300px;
     box-sizing: border-box;
     margin: 5px 0px;
     padding: 5px;
     border: 1px solid RGB(0, 0, 0, 0.15);
 }
 
-.form input[type=text]:focus, .form input[type=password]:focus {
+.form input[type=text]:focus, .form input[type=password]:focus, .form input[type=number]:focus, .form textarea:focus, .form select:focus {
     border-color: rgb(66, 145, 209);
 }
 
-.form input[type=submit] {
+.form input[type=text]::placeholder, .form input[type=password]::placeholder, .form input[type=number]::placeholder, .form textarea::placeholder {
+    color: rgb(207, 207, 207);
+}
+
+.form input[type=text]:focus::placeholder, .form input[type=password]:focus::placeholder, .form input[type=number]:focus::placeholder, .form textarea:focus::placeholder {
+    color: rgb(136, 136, 136);
+}
+
+.form input[type=file] {
     margin: 5px 0px;
+    padding: 5px;
+}
+
+.button {
+    margin: 5px 0px 5px 5px;
     padding: 5px;
     color: rgba(0, 0, 0, .8);
     background: #e0e1e2 none;
     border: none;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
-.form input[type=submit]:hover {
+.button:hover {
     background: #c9c9c9 none;
+}
+
+.form input[type=submit].big {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.button.red {
+    background-color: red;
+    color: white
+}
+
+.button.green {
+    background-color: green;
+    color: white
 }
 
 .error {
@@ -39,10 +82,20 @@
     font-size: 12px;
 }
 
-.form input[type=text]::placeholder, .form input[type=password]::placeholder {
-    color: rgb(207, 207, 207);
+/*=============== quill ============*/
+
+.quill img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 300px;
 }
 
-.form input[type=text]:focus::placeholder, .form input[type=password]:focus::placeholder {
-    color: rgb(136, 136, 136);
+.ql-editor {
+    min-height: 300px;
+}
+
+/*fix rtl side effects*/
+
+.ql-snow .ql-picker-label {
+    padding-right: 28px;
 }

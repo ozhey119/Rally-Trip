@@ -13,7 +13,7 @@ const ProductPreview = ({ product, id }) => {
                 <div className='preview-bot'>
                     <div style={{ fontWeight: 'bold', textAlign: 'center' }}>{product.title}</div>
                     <div className='divider'></div>
-                    <div>{product.price.length ? `₪${product.price}` : 'בקרוב..'}</div>
+                    <div>{product.price ? `₪${product.price}` : 'צור קשר לקבלת מחיר'}</div>
                     <button className='btn'>לפרטים נוספים</button>
                 </div>
             </article>
