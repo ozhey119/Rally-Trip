@@ -15,7 +15,7 @@ const Products = () => {
 
     // This hook is used to fetch the information from firebase
     useEffect(() => {
-        fireDb.ref().child('products').once('value', snapshot => {
+        fireDb.ref().child('products').on('value', snapshot => {
             if (snapshot.val() != null) {
                 setInformation({ ...snapshot.val() })
             }
@@ -38,7 +38,7 @@ const Products = () => {
         <div className='page-container products-page'>
             <Switch>
                 <Route path='/products/:category/:subcategory/:id'>
-                    <ProductPage product={information[id]} />
+                    <ProductPage product={information[id]} id={id} />
                 </Route>
                 <Route exact path={["/products/:category/:subcategory", "/products/:category", "/products"]}>
                     <SideMenu />

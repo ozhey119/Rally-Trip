@@ -48,34 +48,17 @@
     padding: 5px;
 }
 
-.button {
+.form input[type=checkbox] {
     margin: 5px 0px 5px 5px;
-    padding: 5px;
-    color: rgba(0, 0, 0, .8);
-    background: #e0e1e2 none;
-    border: none;
-    transition: all 0.3s;
-    cursor: pointer;
 }
 
-.button:hover {
-    background: #c9c9c9 none;
-}
 
-.form input[type=submit].big {
+.form input[type=submit].big, .form .button.big {
     font-size: 16px;
     padding: 10px;
+    width: 200px;
 }
 
-.button.red {
-    background-color: red;
-    color: white
-}
-
-.button.green {
-    background-color: green;
-    color: white
-}
 
 .error {
     color: red;
@@ -90,8 +73,13 @@
     max-width: 300px;
 }
 
-.ql-editor {
+.form .ql-editor {
     min-height: 300px;
+}
+
+.ql-editor {
+    max-width: 960px;
+    font-size: medium;
 }
 
 /*fix rtl side effects*/

@@ -17,8 +17,8 @@ const Footer = () => {
                     <a href="mailto:119raz@walla.com"><img src={Mail} alt="Mail" className='icon' /></a>
                 </div>
                 <div >© כל הזכויות שמורות לRally Trip</div>
-                
             </div>
+            <div style={{ fontSize: '14px', textAlign: 'left', color: 'grey' }}>Developed by Oz Heymann</div>
         </section>
     );
 }

@@ -7,6 +7,7 @@ const Home = () => {
     return (
         <div id ='home'>
             <img className = 'landing-image' src={landingImage} alt='Rally' />
+            ראלי טריפ. השער שלך לעולם הראלי רייד
         </div>
     );
 }

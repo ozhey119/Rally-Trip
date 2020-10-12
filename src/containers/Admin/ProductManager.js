@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form"
 import ReactQuill from 'react-quill';
+import ImageUploader from './ImageUploader';
+import Loader from '../../components/Loader/Loader';
+import Dialog from '../../components/Dialog/Dialog';
 import { links } from '../../links';
 import { fireDb, fireStorage } from "../../firebase";
 import { modules, formats } from './quillConfig'
@@ -10,89 +13,87 @@ import './Admin.css';
 const categoriesOptions = links.map(link => <option key={link.path} value={link.path.slice(link.path.lastIndexOf('/') + 1)}>{link.name}</option>)
 
 const ProductManager = () => {
-    const { register, handleSubmit, errors, watch, reset } = useForm();
-    const { register: register2, watch: watch2 } = useForm({ defaultValues: { todo: "add" } });
-    const [editorValue, setEditorValue] = useState('');
-    const [productsOptions, setProductsOptions] = useState({})
-    const [productsInfo, setProductsInfo] = useState({})
-    const [subCatOptions, setSubCatOptions] = useState([]);
-    const [subCatOptSelectedProd, setSubCatOptSelectedProd] = useState([]);
-    const [currentProductId, setCurrentProductId] = useState();
+
+    const { register, handleSubmit, errors, watch, reset } = useForm(); // The edited product form
+    const { register: register2, watch: watch2 } = useForm({ defaultValues: { todo: "add" } }); // The menu form
+
+    const [editorValue, setEditorValue] = useState(''); //Quill data
+    const [productsOptions, setProductsOptions] = useState({}) // The product's names to be shown in the select tag 
+    const [productsInfo, setProductsInfo] = useState({}) // The information about all of the products fetched from firebase
+    const [subCatOptions, setSubCatOptions] = useState([]); // The sub categories options in the menu
+    const [subCatOptSelectedProd, setSubCatOptSelectedProd] = useState([]); // The sub categories options in the selected product
+    const [currentProductId, setCurrentProductId] = useState(); // The current edited product
+    const [isLoading, setIsLoading] = useState(false); // Loading indicator
+    const [dialogContent, setDialogContent] = useState(false); // Dialog handler
+
     const category = watch2("category");
-    const subcategory = watch2("subcategory")
+    const subcategory = watch2("subcategory");
     const todo = watch2("todo");
-    const selectedProductId = watch2("product-id")
-    const categorySelectedProd = watch("category")
+    const selectedProductId = watch2("product-id");
+    const categorySelectedProd = watch("category");
+    const uploadedImage = watch("image");
 
     const onSubmit = async (data) => {
+        console.log("Upload proccess begun");
+        setIsLoading(true);
         let { image, ...product } = data;
         let productKey = currentProductId;
-        console.log("Upload proccess begun")
         if (!product.subcategory) { //if there is no sub category, the default will be 'sc' just to organize the data
             product.subcategory = 'sc';
         }
         if (!productKey) { // if we are adding a new product and not editing, a new key will be generated.
-            productKey = fireDb.ref().child('test').push().key; // create a new product reference
+            productKey = fireDb.ref().child('products').push().key; // create a new product reference
         }
-        // if an image was chosen, we will upload it. if an image already exists, we will delete it first.
-        if (image[0]) {
-            //First, if there's already an image, we will delete it 
-            if (productsInfo[currentProductId] && productsInfo[currentProductId].image) {
-                console.log("Old image URL: " + productsInfo[currentProductId].image)
-                let imageRef = fireStorage.refFromURL(productsInfo[currentProductId].image);
-                if (imageRef) {
-                    imageRef.delete().then(() => {
-                        console.log("Image deleted successfully")
-                    }).catch((error) => {
-                        console.log(error)
-                    });
-                }
-            }
-            // Now, we can upload the image and get the download url
-            let downloadUrl = await uploadTaskPromise(productKey, image[0]);
+        if (image[0]) { // if there's an image it will be uploaded. The old image will be overwritten.
+            let downloadUrl = await uploadTaskPromise(productKey, image[0], 'image');
             product.image = downloadUrl; // Add the downloadUrl to the new product's information
+        } else if (productsInfo[currentProductId] && productsInfo[currentProductId].image)  { // if there isn't an image, but there is an old image, keep the old one
+            product.image = productsInfo[currentProductId].image;
         }
-
         // Write the new products's data simultaneously in the products list and the quill list.
         var updates = {};
-        updates['/test/' + productKey] = product;
+        updates['/products/' + productKey] = product;
         updates['/quill/' + productKey] = editorValue;
         fireDb.ref().update(updates, (error) => {
             if (error) {
-                alert("erorr :" + error);
+                setIsLoading(false);
+                setDialogContent("תקלה :" + error);
             } else {
-                alert("העלאה בוצעה בהצלחה")
+                setIsLoading(false);
+                setDialogContent("ההעלאה בוצעה בהצלחה");
                 setCurrentProductId();
             }
         });
     }
 
     const deleteProduct = () => {
-        if (window.confirm('אתה בטוח שאתה רוצה למחוק את המוצר?')) {
-            //First, if there's already an image, we will delete it 
-            if (productsInfo[selectedProductId] && productsInfo[selectedProductId].image) {
-                console.log("Old image URL: " + productsInfo[selectedProductId].image)
-                let imageRef = fireStorage.refFromURL(productsInfo[selectedProductId].image);
-                if (imageRef) {
-                    imageRef.delete().then(() => {
-                        console.log("Image deleted successfully")
+        if (window.confirm(`אתה עומד למחוק את המוצר "${productsInfo[currentProductId].title}". האם אתה בטוח?`)) {
+            setIsLoading(true);
+            if (productsInfo[currentProductId] && productsInfo[currentProductId].image) {
+                fireStorage.refFromURL(productsInfo[currentProductId].image) 
+                    .delete()
+                    .then(() => {
+                        console.log('image deleted successfully!')
                     }).catch((error) => {
-                        console.log(error)
+                        console.log("error in deleting image:" + error);
                     });
-                }
             }
-            var updates = {};
-            updates['/test/' + selectedProductId] = null;
-            updates['/quill/' + selectedProductId] = null;
-            fireDb.ref().update(updates, (error) => {
+            let updates = {};
+            updates['/products/' + currentProductId] = null;
+            updates['/quill/' + currentProductId] = null;
+            setCurrentProductId(); // reset the current product id state
+            fireDb.ref().update(updates, (error) => { // delete the product
                 if (error) {
-                    alert("error :" + error);
+                    setIsLoading(false);
+                    setDialogContent("תקלה :" + error);
                 } else {
-                    alert("המוצר נמחק בהצלחה")
+                    setIsLoading(false);
+                    setDialogContent("המוצר נמחק בהצלחה")
                 }
             });
         }
     }
+
     // After the current product id changes, we will change the fields accordingly
     useEffect(() => {
         if (currentProductId) {
@@ -104,8 +105,8 @@ const ProductManager = () => {
                 }
             })
         } else {
-            reset({});
-            setEditorValue('');
+            reset({}); //reset field values
+            setEditorValue('<p class="ql-align-right ql-direction-rtl"><br></p>'); //reset quill value
         }
     }, [currentProductId, productsInfo, reset])
 
@@ -113,8 +114,8 @@ const ProductManager = () => {
     // This hook is used to fetch the information from firebase
     useEffect(() => {
         // make sure to only fetch the data from firebase if the user wants to update or delete AND it wasn't already fetched before
-        if (todo === "update-delete" && Object.keys(productsInfo).length === 0 && productsInfo.constructor === Object) {
-            fireDb.ref().child('test').on('value', snapshot => {
+        if (todo === "update" && Object.keys(productsInfo).length === 0 && productsInfo.constructor === Object) {
+            fireDb.ref().child('products').on('value', snapshot => {
                 if (snapshot.val() != null) {
                     setProductsInfo({ ...snapshot.val() })
                 }
@@ -180,12 +181,13 @@ const ProductManager = () => {
 
     return (
         <article>
+            <Dialog dialogContent={dialogContent} setDialogContent={setDialogContent} />
             <form className="todo">
                 <input name="todo" type="radio" value="add" ref={register2} />
                 <label>מוצר חדש</label>
-                <input name="todo" type="radio" value="update-delete" ref={register2} />
+                <input name="todo" type="radio" value="update" ref={register2} />
                 <label>עריכת מוצר</label>
-                {todo === "update-delete" ?
+                {todo === "update" ?
                     <>
                         <h3>בחירת מוצר לעריכה/מחיקה</h3>
                         <label>קטגוריה: </label>
@@ -196,43 +198,46 @@ const ProductManager = () => {
                         {productsOptions}
                         <div>
                             <button className='button green' type='button' onClick={() => setCurrentProductId(selectedProductId)}>ערוך מוצר נבחר</button>
-                            <button className='button red' type='button' onClick={deleteProduct}>מחק מוצר נבחר</button>
                         </div>
                     </>
                     : null}
             </form>
-            <form onSubmit={handleSubmit(onSubmit)} className='form'>
-                <h2 style={{ paddingBottom: '10px' }}>{currentProductId ? `עדכון מוצר "${productsInfo[currentProductId].title}"` : "הוספת מוצר"}</h2>
-                <label>כותרת</label>
-                <input type="text" name="title" ref={register({ required: true })} placeholder="כותרת" />
-                {errors.title && <span className="error">יש להכניס כותרת</span>}
-                <label>מחיר</label>
-                <input type='number' name="price" ref={register({ required: true })} placeholder="מחיר" />
-                {errors.price && <span className="error">יש לציין מחיר. כדי שיופיע "צור קשר לקבלת מחיר", יש לציין מחיר 0</span>}
-                <label>תיאור</label>
-                <textarea name="description" ref={register} placeholder="תיאור" />
-                <label>קטגוריה</label>
-                <select name="category" ref={register({ required: true })}>
-                    {categoriesOptions}
-                </select>
-                {subCatOptSelectedProd}
-                <label>מלאי</label>
-                <input type='number' name="stock" ref={register({ required: true })} placeholder="מלאי" />
-                {errors.stock && <span className="error">יש להכניס מספר מוצרים במלאי</span>}
-                <label>תמונה</label>
-                <input type="file" name="image" ref={register} />
-                <ReactQuill theme="snow" value={editorValue} onChange={setEditorValue} modules={modules} formats={formats} />
-                <input type="submit" value={todo === 'add' ? "העלה מוצר" : "עדכן מוצר"} className='button green big' />
-            </form>
+            {(todo === 'update' && !currentProductId) ? null : // If you chose update and there's no current product, dont show the form
+                <form onSubmit={handleSubmit(onSubmit)} className='form'>
+                    <h2 style={{ paddingBottom: '10px' }}>{currentProductId ? `עדכון מוצר "${productsInfo[currentProductId].title}"` : "הוספת מוצר"}</h2>
+                    <label>כותרת</label>
+                    <input type="text" name="title" ref={register({ required: true })} placeholder="כותרת" />
+                    {errors.title && <span className="error">יש להכניס כותרת</span>}
+                    <label>מחיר</label>
+                    <input type='number' name="price" ref={register({ required: true })} placeholder="מחיר" />
+                    {errors.price && <span className="error">יש לציין מחיר. כדי שיופיע "צור קשר לקבלת מחיר", יש לציין מחיר 0</span>}
+                    <label>תיאור</label>
+                    <textarea name="description" ref={register} placeholder="תיאור" />
+                    <label>קטגוריה</label>
+                    <select name="category" ref={register({ required: true })}>
+                        {categoriesOptions}
+                    </select>
+                    {subCatOptSelectedProd}
+                    <label>מלאי</label>
+                    <input type='number' name="stock" ref={register({ required: true })} placeholder="מלאי" />
+                    {errors.stock && <span className="error">יש להכניס מספר מוצרים במלאי</span>}
+                    <label>תמונה</label>
+                    <ImageUploader product={productsInfo[currentProductId]} uploadedImage={uploadedImage} register={register} />
+                    <ReactQuill theme="snow" value={editorValue} onChange={setEditorValue} modules={modules} formats={formats} />
+                    <div>
+                        <input type="submit" value={todo === 'add' ? "העלה מוצר" : "שמור שינויים"} className='button green big' />
+                        {currentProductId ? <button className='button red big' type='button' onClick={deleteProduct}>מחק מוצר</button> : null}
+                    </div>
+                </form>}
+            {isLoading ? <Loader fullscreen /> : null}
         </article>
     );
 }
 
-
-async function uploadTaskPromise(productId, file) {
+async function uploadTaskPromise(productId, file, name) {
     return new Promise(function (resolve, reject) {
         //Now we will upload the image and return the download url
-        let uploadTask = fireStorage.ref().child(`products/${productId}/${file.name}`).put(file); // upload 
+        let uploadTask = fireStorage.ref().child(`products/${productId}/${name}.png`).put(file); // upload 
         uploadTask.on('state_changed', (snapshot) => {
             let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log('Upload is ' + progress + '% done');
@@ -249,15 +254,3 @@ async function uploadTaskPromise(productId, file) {
 }
 
 export default ProductManager;
-
-// <ReactQuill theme={null} value={retrievedEditorData} readOnly={true} />
-
-    // // This hook is used to fetch the information from firebase
-    // useEffect(() => {
-    //     fireDb.ref().child('quill').on('value', snapshot => {
-    //         let data = snapshot.val();
-    //         if (data) {
-    //             setRetrievedEditorData(data['-MI_5Ts6RbzREVsLCH9P'])
-    //         }
-    //     })
-    // }, [])

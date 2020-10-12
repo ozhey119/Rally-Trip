@@ -1,0 +1,41 @@
+/*Upload Image*/
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile:focus+label {
+    outline: 1px solid rgb(66, 145, 209);
+
+}
+
+.img-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #f5f6f7;
+}
+
+.img-preview-container {
+    position: relative;
+    width: 250px;
+    height: 168px;
+    background-color: #f5f6f7;
+    z-index: -100;
+    margin: 5px 0px;
+}
+
+.img-placeholder {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: -50;
+}
