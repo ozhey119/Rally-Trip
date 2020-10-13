@@ -4,7 +4,7 @@
     justify-content: center;
     flex-direction: column;
     border-top: 2px solid rgb(0, 0, 0, 0.1);
-    margin: 0px 2vw 0px;
+    margin: 0px 2vw 5px;
 }
 
 .icons-container {
@@ -12,12 +12,19 @@
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
+    margin-top: 4px;
 }
 
 .icon {
     height: 25px;
     width: auto;
     padding: 2px 5px 0px;
+}
+
+.credit {
+    font-size: 14px;
+    text-align: left;
+    color: grey;
 }
 
 @media screen and (max-width: 767px) {
