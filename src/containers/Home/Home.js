@@ -6,11 +6,11 @@ import landingImageMobile from '../../images/542241.jpg'
 const Home = () => {
 
     return (
-        <div id='home'>
+        <div>
             <div className='background' >
                 <div className = 'header'>
                     <h1>ראלי טריפ</h1>
-                    <h3>השער שלך לעולם הראלי רייד</h3>
+                    <h4>השער שלך לעולם הראלי רייד</h4>
                 </div>
 
             </div>

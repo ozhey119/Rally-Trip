@@ -5,13 +5,13 @@
     flex-direction: column;
     border-top: 2px solid rgb(0, 0, 0, 0.1);
     margin: 0px 2vw 5px;
+    font-size: 0.9rem;
 }
 
 .icons-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
     margin-top: 4px;
 }
 
@@ -22,13 +22,12 @@
 }
 
 .credit {
-    font-size: 14px;
     text-align: left;
     color: grey;
 }
 
 @media screen and (max-width: 767px) {
-    .icons-container {
+    .footer {
         font-size: 0.7rem;
     }
     .icon {

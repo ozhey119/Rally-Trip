@@ -8,11 +8,10 @@
 
 .background .header {
     position: absolute;
-    bottom: 70px;
+    bottom: 30px;
     right: 50px;
     line-height: 90px;
     font-size: xxx-large;
-    font-family: Arial;
     text-shadow: 2px 2px 5px rgb(66, 52, 15);
     padding: 10px;
     box-sizing: border-box;

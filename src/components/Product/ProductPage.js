@@ -3,9 +3,6 @@ import ReactQuill from 'react-quill';
 import MakeContact from './MakeContact';
 import Breadcrumbs from './Breadcrumbs';
 import Loader from '../Loader/Loader';
-import FacebookColor from '../../icons/FacebookColor.png';
-import WhatsAppColor from '../../icons/WhatsAppColor.png';
-import MailColor from '../../icons/MailColor.png';
 import { fireDb } from "../../firebase";
 
 
@@ -42,15 +39,11 @@ const ProductPage = ({ product = {}, id }) => {
                         {parseInt(stock) ?
                             <div style={{ color: 'green' }}>&#9745; המוצר במלאי </div> :
                             <div style={{ color: 'red' }}>&#9746; המוצר לא קיים במלאי. צור קשר לבירור זמן אספקה. </div>}
-                        <MakeContact />
-                        <div className='icons'>
-                            <a href="https://wa.me/972505562519"><img src={WhatsAppColor} alt="WhatsApp" /></a>
-                            <a href="https://www.facebook.com/RallyTrip"><img src={FacebookColor} alt="Facebook" /></a>
-                            <a href="mailto:119raz@walla.com"><img src={MailColor} alt="Mail" /></a>
-                        </div>
+                        <h2 style={{ textAlign: 'center' }}>לרכישה</h2>
+                        <MakeContact withIcons />
                     </div>
                     <div className='grid-bottom'> {/*The length of blank quill data with rtl is 51 */}
-                        {quillData.length > 51 ? <h3 style={{ padding: '12px 15px 0px' }}>פרטים נוספים</h3> : ''} 
+                        {quillData.length > 51 ? <h3 style={{ padding: '12px 15px 0px' }}>פרטים נוספים</h3> : ''}
                         <ReactQuill theme="bubble" value={quillData} readOnly />
                     </div>
                 </div>

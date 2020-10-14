@@ -1,5 +1,8 @@
 import React from 'react';
 import PhoneColor from '../../icons/PhoneColor.png';
+import FacebookColor from '../../icons/FacebookColor.png';
+import WhatsAppColor from '../../icons/WhatsAppColor.png';
+import MailColor from '../../icons/MailColor.png';
 import './MakeContact.css';
 
 const copyPhoneNumber = () => {
@@ -10,11 +13,10 @@ const copyPhoneNumber = () => {
     });
 }
 
-const MakeContact = () => {
+const MakeContact = ({ withIcons, alignRight }) => {
 
     return (
-        <div className='phone'>
-            <h2>לרכישה</h2>
+        <div className={alignRight ? 'phone align-right' : 'phone'}> 
             <div className='phone-grid'>
                 <a href="tel:+972505562519" className='phone-button mobile'>
                     <span>לחץ להתקשר</span>
@@ -25,6 +27,13 @@ const MakeContact = () => {
                     <img src={PhoneColor} alt="Phone" />
                 </div>
             </div>
+            {withIcons ?
+                <div className='icons'>
+                    <a href="https://wa.me/972505562519"><img src={WhatsAppColor} alt="WhatsApp" /></a>
+                    <a href="https://www.facebook.com/RallyTrip"><img src={FacebookColor} alt="Facebook" /></a>
+                    <a href="mailto:119raz@walla.com"><img src={MailColor} alt="Mail" /></a>
+                </div>
+                : null}
         </div>
     );
 }

@@ -88,15 +88,6 @@
     padding: 7px;
 }
 
-.icons {
-    padding: 10px;
-}
-
-.icons img {
-    width: 50px;
-    height: auto;
-}
-
 .data-field {
     padding: 7px;
 }
@@ -133,14 +124,6 @@
     width: 95%;
     margin: 0px auto;
     background-color: rgb(0, 0, 0, 0.1);
-}
-
-.product-information .icons {
-    text-align: center;
-}
-
-.product-information .icons a {
-    padding: 0px 10px;
 }
 
 .price {
