@@ -1,14 +1,19 @@
 .navguide-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0px auto;
-    padding: 0px 20px;
+    padding: 20px;
+}
+
+.navguide-container h2 {
+    font-weight: normal;
+    padding: 0px 0px 10px;
 }
 
 .navguide-item {
     display: flex;
     flex-direction: row;
     margin-bottom: 60px;
-    align-items: start;
+    align-items: center;
 }
 
 .navguide-item.reverse {
@@ -20,7 +25,7 @@
     max-width: 100%;
     object-fit: cover;
     margin: 0px 10px 0px 50px;
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -30,30 +35,27 @@
 
 .navguide-text {
     width: 100%;
-    padding: 10px;
 }
 
-.navguide-text h2 {
-    font-weight: normal;
-    padding: 0px 0px 10px;
-}
-.navguide-text ul {
-    padding-bottom: 10px;
-}
 .navguide-text li {
     list-style: circle;
-    list-style-position: outside;
     margin-right: 20px;
-    line-height: 30px;
+    line-height: 32px;
 }
 
 @media screen and (max-width: 800px) {
+    .navguide-container {
+        padding: 10px 20px 20px;
+    }
     .navguide-item, .navguide-item.reverse {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 0px;
+    }
+    .navguide-text {
+        margin: 20px 0px;
     }
     .navguide-image, .navguide-image.reverse {
         margin: 0px;
     }
-
 }

@@ -24,7 +24,7 @@ const NavGuide = () => {
                     </div>
                 </div>
                 <div className='navguide-item'>
-                    <img src={image} alt='desc' className='navguide-image' />
+                    <img src={image2} alt='desc' className='navguide-image' />
                     <div className='navguide-text'>
                         <h2>הדרכה מעשית</h2>
                         <ul>
@@ -36,7 +36,7 @@ const NavGuide = () => {
                     </div>
                 </div>
                 <div className='navguide-item reverse'>
-                    <img src={image2} alt='desc' className='navguide-image reverse' />
+                    <img src={image} alt='desc' className='navguide-image reverse' />
                     <div className='navguide-text'>
                         <h2>מחירון</h2>
                         <ul>
@@ -44,10 +44,10 @@ const NavGuide = () => {
                             <li>הדרכת תאוריה בלבד - 600₪</li>
                             <li>הדרכה מעשית בלבד - 700₪</li>
                         </ul>
-                        <h2 style = {{paddingTop: '80px'}}>לרכישה</h2>
-                        <div><MakeContact alignRight/></div>
                     </div>
                 </div>
+                <h2>לרכישה</h2>
+                <div><MakeContact alignRight /></div>
             </article>
         </div>
     );
