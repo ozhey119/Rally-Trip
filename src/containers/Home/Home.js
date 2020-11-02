@@ -1,7 +1,5 @@
 import React from 'react';
 import './Home.css';
-import landingImage from '../../images/542247.jpg'
-import landingImageMobile from '../../images/542241.jpg'
 
 const Home = () => {
 

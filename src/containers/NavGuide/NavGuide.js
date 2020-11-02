@@ -10,7 +10,7 @@ const NavGuide = () => {
 
     return (
         <div className='page-container'>
-            <h1 style={{ textAlign: 'center', paddingBottom: '20px' }}>ניווט באמצעות ספר דרך</h1>
+            <h1 style={{ textAlign: 'center', padding: '15px 0px 20px' }}>ניווט באמצעות ספר דרך</h1>
             <article className='navguide-container'>
                 <div className='navguide-item reverse'>
                     <img src={image1} alt='desc' className='navguide-image reverse' />

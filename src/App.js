@@ -3,6 +3,7 @@ import Products from './containers/Products/Products';
 import Home from './containers/Home/Home';
 import Admin from './containers/Admin/Admin';
 import NavGuide from './containers/NavGuide/NavGuide';
+import Abroad from './containers/Abroad/Abroad';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -23,7 +24,7 @@ const App = () => {
                         <Products />
                     </Route>
                     <Route path="/rally-abroad">
-                        <div className='page-container'>rally-abroad</div>
+                        <Abroad />
                     </Route>
                     <Route path="/nav-guide">
                         <NavGuide />

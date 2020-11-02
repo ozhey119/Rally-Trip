@@ -16,7 +16,7 @@ const ImagesUpload = ({ product, uploadedImage, register }) => {
     }, [product, uploadedImage])
 
     return (
-        <div>
+        <div style = {{display: "flex", alignItems: 'flex-end'}}>
             <div className='img-preview-container'>
                 <div className='img-placeholder'>
                     אין תמונה
@@ -25,7 +25,7 @@ const ImagesUpload = ({ product, uploadedImage, register }) => {
             </div>
             <div>
                 <input type="file" ref={register} name="image" id="file" className="inputfile" accept="image/*" />
-                <label htmlFor="file" className="button" style={{ display: 'inline-block' }}> {imageUrl ? 'החלף תמונה' : 'העלאת תמונה'} </label>
+                <label htmlFor="file" className="button" style={{ display: 'inline-block', marginRight: '5px' }}> {imageUrl ? 'החלף תמונה' : 'העלאת תמונה'} </label>
             </div>
         </div>
     );

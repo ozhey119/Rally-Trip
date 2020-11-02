@@ -223,6 +223,7 @@ const ProductManager = () => {
                     {errors.stock && <span className="error">יש להכניס מספר מוצרים במלאי</span>}
                     <label>תמונה</label>
                     <ImageUploader product={productsInfo[currentProductId]} uploadedImage={uploadedImage} register={register} />
+                    <label style = {{padding: '5px 0px 7px'}}>מידע נוסף</label>
                     <ReactQuill theme="snow" value={editorValue} onChange={setEditorValue} modules={modules} formats={formats} />
                     <div>
                         <input type="submit" value={todo === 'add' ? "העלה מוצר" : "שמור שינויים"} className='button green big' />

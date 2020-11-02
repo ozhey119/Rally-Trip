@@ -29,6 +29,7 @@
     margin: 5px 0px;
     padding: 5px;
     border: 1px solid RGB(0, 0, 0, 0.15);
+    font-family: 'Heebo-VariableFont_wght', Arial, Helvetica, sans-serif;
 }
 
 .form input[type=text]:focus, .form input[type=password]:focus, .form input[type=number]:focus, .form textarea:focus, .form select:focus {
