@@ -16,6 +16,7 @@ body {
 }
 
 * {
+  font-family: 'Heebo-VariableFont_wght', Arial, Helvetica, sans-serif;
   padding: 0px;
   margin: 0px;
 }

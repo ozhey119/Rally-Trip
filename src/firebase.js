@@ -17,7 +17,7 @@ let firebaseConfigProduction = {
     measurementId: "G-3Q5HDZ04H2"
 };
 
-/*
+
 let firebaseConfigDevelopment = {
     apiKey: "AIzaSyB2sTZWeYTKMQmoyMWKNr8pYil0ZOkrUrk",
     authDomain: "rally-trip-dev.firebaseapp.com",
@@ -28,10 +28,10 @@ let firebaseConfigDevelopment = {
     appId: "1:45699978518:web:e9ec13a6261e93ccafac37",
     measurementId: "G-RDDKEQ1EN7"
   };
-*/
+
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfigProduction);
+firebase.initializeApp(firebaseConfigDevelopment);
 firebase.analytics();
 
 let fireDb = firebase.database();

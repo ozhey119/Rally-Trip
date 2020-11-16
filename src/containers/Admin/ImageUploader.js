@@ -12,6 +12,8 @@ const ImagesUpload = ({ product, uploadedImage, register }) => {
                 .catch(err => console.log(err))
         } else if (product && product['image']) {
             setImageUrl(product['image']);
+        } else {
+            setImageUrl('');
         }
     }, [product, uploadedImage])
 

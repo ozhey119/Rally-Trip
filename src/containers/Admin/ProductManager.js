@@ -12,13 +12,13 @@ import './Admin.css';
 
 const categoriesOptions = links.map(link => <option key={link.path} value={link.path.slice(link.path.lastIndexOf('/') + 1)}>{link.name}</option>)
 
-const ProductManager = () => {
+const ProductManager = ({ action }) => {
 
     const { register, handleSubmit, errors, watch, reset } = useForm(); // The edited product form
     const { register: register2, watch: watch2 } = useForm({ defaultValues: { todo: "add" } }); // The menu form
 
     const [editorValue, setEditorValue] = useState(''); //Quill data
-    const [productsOptions, setProductsOptions] = useState({}) // The product's names to be shown in the select tag 
+    const [productsOptions, setProductsOptions] = useState([]) // The product's names to be shown in the select tag 
     const [productsInfo, setProductsInfo] = useState({}) // The information about all of the products fetched from firebase
     const [subCatOptions, setSubCatOptions] = useState([]); // The sub categories options in the menu
     const [subCatOptSelectedProd, setSubCatOptSelectedProd] = useState([]); // The sub categories options in the selected product
@@ -28,7 +28,6 @@ const ProductManager = () => {
 
     const category = watch2("category");
     const subcategory = watch2("subcategory");
-    const todo = watch2("todo");
     const selectedProductId = watch2("product-id");
     const categorySelectedProd = watch("category");
     const uploadedImage = watch("image");
@@ -47,7 +46,7 @@ const ProductManager = () => {
         if (image[0]) { // if there's an image it will be uploaded. The old image will be overwritten.
             let downloadUrl = await uploadTaskPromise(productKey, image[0], 'image');
             product.image = downloadUrl; // Add the downloadUrl to the new product's information
-        } else if (productsInfo[currentProductId] && productsInfo[currentProductId].image)  { // if there isn't an image, but there is an old image, keep the old one
+        } else if (productsInfo[currentProductId] && productsInfo[currentProductId].image) { // if there isn't a new image, but there is an old image, keep the old one
             product.image = productsInfo[currentProductId].image;
         }
         // Write the new products's data simultaneously in the products list and the quill list.
@@ -70,7 +69,7 @@ const ProductManager = () => {
         if (window.confirm(`אתה עומד למחוק את המוצר "${productsInfo[currentProductId].title}". האם אתה בטוח?`)) {
             setIsLoading(true);
             if (productsInfo[currentProductId] && productsInfo[currentProductId].image) {
-                fireStorage.refFromURL(productsInfo[currentProductId].image) 
+                fireStorage.refFromURL(productsInfo[currentProductId].image)
                     .delete()
                     .then(() => {
                         console.log('image deleted successfully!')
@@ -114,17 +113,17 @@ const ProductManager = () => {
     // This hook is used to fetch the information from firebase
     useEffect(() => {
         // make sure to only fetch the data from firebase if the user wants to update or delete AND it wasn't already fetched before
-        if (todo === "update" && Object.keys(productsInfo).length === 0 && productsInfo.constructor === Object) {
+        if (action === "update product" && Object.keys(productsInfo).length === 0 && productsInfo.constructor === Object) {
             fireDb.ref().child('products').on('value', snapshot => {
                 if (snapshot.val() != null) {
                     setProductsInfo({ ...snapshot.val() })
                 }
             })
         }
-        if (todo === "add") {
+        if (action === "add product") {
             setCurrentProductId(); // reset the current product id
         }
-    }, [todo, productsInfo, reset])
+    }, [action, productsInfo, reset])
 
     // This hook is used for filtering
     useEffect(() => {
@@ -182,12 +181,8 @@ const ProductManager = () => {
     return (
         <article>
             <Dialog dialogContent={dialogContent} setDialogContent={setDialogContent} />
-            <form className="todo">
-                <input name="todo" type="radio" value="add" ref={register2} />
-                <label>מוצר חדש</label>
-                <input name="todo" type="radio" value="update" ref={register2} />
-                <label>עריכת מוצר</label>
-                {todo === "update" ?
+            <form className="form--compressed">
+                {action === "update product" ?
                     <>
                         <h3>בחירת מוצר לעריכה/מחיקה</h3>
                         <label>קטגוריה: </label>
@@ -202,7 +197,7 @@ const ProductManager = () => {
                     </>
                     : null}
             </form>
-            {(todo === 'update' && !currentProductId) ? null : // If you chose update and there's no current product, dont show the form
+            {(action === 'update product' && !currentProductId) ? null : // If you chose update and there's no current product, dont show the form
                 <form onSubmit={handleSubmit(onSubmit)} className='form'>
                     <h2 style={{ paddingBottom: '10px' }}>{currentProductId ? `עדכון מוצר "${productsInfo[currentProductId].title}"` : "הוספת מוצר"}</h2>
                     <label>כותרת</label>
@@ -223,10 +218,10 @@ const ProductManager = () => {
                     {errors.stock && <span className="error">יש להכניס מספר מוצרים במלאי</span>}
                     <label>תמונה</label>
                     <ImageUploader product={productsInfo[currentProductId]} uploadedImage={uploadedImage} register={register} />
-                    <label style = {{padding: '5px 0px 7px'}}>מידע נוסף</label>
+                    <label style={{ padding: '5px 0px 7px' }}>מידע נוסף</label>
                     <ReactQuill theme="snow" value={editorValue} onChange={setEditorValue} modules={modules} formats={formats} />
                     <div>
-                        <input type="submit" value={todo === 'add' ? "העלה מוצר" : "שמור שינויים"} className='button green big' />
+                        <input type="submit" value={action === 'add product' ? "העלה מוצר" : "שמור שינויים"} className='button green big' />
                         {currentProductId ? <button className='button red big' type='button' onClick={deleteProduct}>מחק מוצר</button> : null}
                     </div>
                 </form>}
