@@ -44,7 +44,9 @@ const ProductPage = ({ product = {}, id }) => {
                     </div>
                     <div className='grid-bottom'> {/*The length of blank quill data with rtl is 51 */}
                         {quillData.length > 51 ? <h3 style={{ padding: '12px 15px 0px' }}>פרטים נוספים</h3> : ''}
-                        <ReactQuill theme="bubble" value={quillData} readOnly />
+                        <div style={{ padding: '15px' }}>
+                            <ReactQuill theme="bubble" value={quillData} readOnly />
+                        </div>
                     </div>
                 </div>
             </article >

@@ -72,6 +72,15 @@
     max-width: 400px;
 }
 
+.ql-bubble .ql-editor {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.ql-hidden {
+    display: none;
+}
+
 .form .ql-editor, .abroad-edit .ql-editor {
     min-height: 300px;
 }
