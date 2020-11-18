@@ -47,7 +47,7 @@ const NavGuide = () => {
                     </div>
                 </div>
                 <h2>לרכישה</h2>
-                <div><MakeContact alignRight /></div>
+                <div><MakeContact alignRight withIcons/></div>
             </article>
         </div>
     );

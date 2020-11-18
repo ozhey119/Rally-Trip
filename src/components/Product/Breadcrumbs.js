@@ -6,15 +6,20 @@ import './Product.css';
 const Breadcrumbs = ({ title }) => {
     const { category, subcategory } = useParams();
     let currentPath, categoryName, subcategoryName;
-    currentPath = links.filter((link) => link.path.includes(category))[0]
-    categoryName = currentPath.name;
-    currentPath = currentPath.routes.filter((link) => (link && link.path && link.path.includes(subcategory)));
-    if (currentPath.length) {
-        subcategoryName = currentPath[0].name;
-    }
+    currentPath = links.filter((link) => link.path.includes(category))[0] // match the current category
+    categoryName = currentPath.name; // put the current category in categoryName
+    // check if there's a subcategory that fits.
+    currentPath.routes.forEach((link) => {
+        if (link && link.path) {
+            let subcategoryPath = link.path.slice(link.path.lastIndexOf('/'));
+            if (subcategoryPath.includes(subcategory)) {
+                subcategoryName = link.name;
+            }
+        }
+    })
 
     return (
-        <section className = 'breadcrumbs'>
+        <section className='breadcrumbs'>
             <Link to={`/`}>בית</Link> &#x203A;
             <Link to={`/products`}> כל המוצרים</Link> &#x203A;
             <Link to={`/products/${category}`}> {categoryName} </Link> &#x203A;
