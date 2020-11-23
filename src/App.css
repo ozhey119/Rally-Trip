@@ -33,3 +33,33 @@
   background-color: blue;
   color: white
 }
+
+
+/*=============== quill ============*/
+
+.ql-bubble .ql-editor {
+  padding: 0px;
+  overflow: hidden;
+}
+
+.ql-hidden {
+  display: none;
+}
+
+.form .ql-editor, .abroad-edit .ql-editor {
+  min-height: 300px;
+}
+
+.ql-editor {
+  font-size: medium;
+}
+
+.quill {
+  max-width: 1000px;
+}
+
+/*fix rtl side effects*/
+
+.ql-snow .ql-picker-label {
+  padding-right: 28px;
+}

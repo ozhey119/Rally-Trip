@@ -64,41 +64,6 @@
     font-size: 12px;
 }
 
-/*=============== quill ============*/
-
-.ql-snow .ql-editor img, .ql-bubble .ql-editor img {
-    object-fit: cover;
-    width: 100%;
-    max-width: 400px;
-}
-
-.ql-bubble .ql-editor {
-    padding: 0px;
-    overflow: hidden;
-}
-
-.ql-hidden {
-    display: none;
-}
-
-.form .ql-editor, .abroad-edit .ql-editor {
-    min-height: 300px;
-}
-
-.ql-editor {
-    font-size: medium;
-}
-
-.quill {
-    max-width: 1000px;
-}
-
-/*fix rtl side effects*/
-
-.ql-snow .ql-picker-label {
-    padding-right: 28px;
-}
-
 /*=============== abroad ============*/
 
 .abroad-edit {
