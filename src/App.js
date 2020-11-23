@@ -18,8 +18,8 @@ const App = () => {
         <main className='main'>
             <NavBar />
             <ErrorBoundary>
-                <Switch>
-                    <Suspense fallback={''}>
+                <Suspense fallback={''}>
+                    <Switch>
                         <Route exact path="/">
                             <Home />
                         </Route>
@@ -38,8 +38,8 @@ const App = () => {
                         <Route path="*">
                             <div className='page-container'>הדף לא נמצא</div>
                         </Route>
-                    </Suspense>
-                </Switch>
+                    </Switch>
+                </Suspense>
             </ErrorBoundary>
             <Footer />
         </main>
