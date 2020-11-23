@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
-import Loader from './components/Loader/Loader';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
