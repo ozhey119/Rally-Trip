@@ -49,7 +49,7 @@ const NavBar = () => {
                     <img src={logo} alt='Rally Trip' className='logo' />
                 </Link>
                 <ul className='nav-links'>
-                    <li><NavLink to="/rally-abroad" activeClassName="nav-active">ראליים בחו"ל</NavLink></li>
+                    <li><NavLink to="/rally-abroad" activeClassName="nav-active">מרוצים בחו"ל</NavLink></li>
                     <li><NavLink to="/nav-guide" activeClassName="nav-active">הדרכות ניווט</NavLink></li>
                 </ul>
             </div>

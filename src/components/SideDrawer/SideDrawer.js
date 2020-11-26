@@ -23,7 +23,7 @@ const SideDrawer = ({ sideDrawerOpen }) => {
             <ul>
                 {linkItems}
             </ul>
-            <NavLink to="/rally-abroad" activeClassName="active" className='sidedrawer-item'>ראליים בחו"ל</NavLink>
+            <NavLink to="/rally-abroad" activeClassName="active" className='sidedrawer-item'>מרוצים בחו"ל</NavLink>
             <NavLink to="/nav-guide" activeClassName="active" className='sidedrawer-item'>הדרכות ניווט</NavLink>
             {/* <div className='seperating-line' /> */}
             {/* <div className='sidedrawer-item'>
