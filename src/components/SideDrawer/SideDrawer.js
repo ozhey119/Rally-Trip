@@ -2,7 +2,7 @@ import React from 'react';
 import './SideDrawer.css';
 import logo from '../../images/logos/logoGlow.png';
 import { NavLink } from 'react-router-dom';
-import contactSVG from '../../icons/contact.svg';
+// import contactSVG from '../../icons/contact.svg';
 import { links } from '../../links';
 
 let linkItems = links.map(link =>
@@ -25,11 +25,11 @@ const SideDrawer = ({ sideDrawerOpen }) => {
             </ul>
             <NavLink to="/rally-abroad" activeClassName="active" className='sidedrawer-item'>ראליים בחו"ל</NavLink>
             <NavLink to="/nav-guide" activeClassName="active" className='sidedrawer-item'>הדרכות ניווט</NavLink>
-            <div className='seperating-line' />
-            <div className='sidedrawer-item'>
+            {/* <div className='seperating-line' /> */}
+            {/* <div className='sidedrawer-item'>
                 <img className='side-icon' src={contactSVG} alt="" />
                  התחבר
-            </div>
+            </div> */}
         </nav>
     );
 }
