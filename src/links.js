@@ -20,7 +20,10 @@ const links = [
         ]
     },
     {
-        path: '/products/gopro', name: 'מצלמות גו פרו', routes : []
+        path: '/products/communicators', name: 'דיבוריות', routes : []
+    },
+    {
+        path: '/products/gopro', name: 'GoPro', routes : []
     }
 ]
 

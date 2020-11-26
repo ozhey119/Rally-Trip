@@ -44,7 +44,7 @@ const Products = () => {
                     <SideMenu />
                     <MobileMenu />
                     <div className='products-container'>
-                        {products}
+                        {products.length ? products : 'לא נמצאו מוצרים.'}
                     </div>
                 </Route>
             </Switch>
