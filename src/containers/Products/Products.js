@@ -3,21 +3,24 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import MobileMenu from '../../components/MobileMenu/MobileMenu';
 import ProductPreview from '../../components/Product/ProductPreview';
 import ProductPage from '../../components/Product/ProductPage';
+import Loader from '../../components/Loader/Loader';
 import { Switch, Route, useParams } from 'react-router-dom';
 import { fireDb } from "../../firebase";
-// import migrate from '../../migrateFB.json'; Used for migrating from the json to firebase
 import './Products.css';
 
 const Products = () => {
     const [information, setInformation] = useState([]);
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Loading indicator
     let { category, subcategory, id } = useParams();
 
     // This hook is used to fetch the information from firebase
     useEffect(() => {
+        setIsLoading(true)
         fireDb.ref().child('products').on('value', snapshot => {
             if (snapshot.val() != null) {
                 setInformation({ ...snapshot.val() })
+                setIsLoading(false)
             }
         })
     }, [])
@@ -44,7 +47,8 @@ const Products = () => {
                     <SideMenu />
                     <MobileMenu />
                     <div className='products-container'>
-                        {products.length ? products : 'לא נמצאו מוצרים.'}
+                        {isLoading ? <Loader /> : null}
+                        {!products.length && !isLoading ? 'לא נמצאו מוצרים.' : products}
                     </div>
                 </Route>
             </Switch>

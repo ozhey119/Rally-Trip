@@ -18,6 +18,8 @@
     border: 12px solid #f3f3f3;
     border-top: 12px solid #3498db;
     z-index: 300;
+    animation: spin-fs 1s linear infinite;
+
 }
 
 @keyframes spin {
@@ -26,5 +28,14 @@
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-fs {
+    0% {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%,-50%) rotate(360deg);
     }
 }
