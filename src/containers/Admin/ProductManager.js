@@ -60,6 +60,10 @@ const ProductManager = ({ action }) => {
             } else {
                 setIsLoading(false);
                 setDialogContent("ההעלאה בוצעה בהצלחה");
+                if (!currentProductId) { //If it's a new product, make sure to reset all values after upload
+                    reset({}); //reset field values
+                    setEditorValue('<p class="ql-align-right ql-direction-rtl"><br></p>'); //reset quill value
+                }
                 setCurrentProductId();
             }
         });
