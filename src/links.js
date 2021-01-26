@@ -26,6 +26,9 @@ const links = [
         path: '/products/towers', name: 'מגדלי ניווט', routes : []
     },
     {
+        path: '/products/wheels', name: 'גלגלים', routes : []
+    },
+    {
         path: '/products/gopro', name: 'GoPro', routes : []
     }
 ]
