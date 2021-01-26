@@ -1,0 +1,21 @@
+.show-tree {
+    max-height: 350px;
+    transition: 0.5s ease-out;
+    overflow: hidden;
+}
+
+.hide-tree {
+    overflow: hidden;
+    max-height: 0px;
+    transition: 0.5s ease-in;
+}
+
+.rotate-down {
+    transform: rotate(-90deg);
+    transition: 0.1s;
+}
+
+.rotate-up {
+    transform: rotate(90deg);
+    transition: 0.1s;
+}
