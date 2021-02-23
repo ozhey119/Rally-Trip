@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { Helmet } from 'react-helmet'
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -16,6 +17,11 @@ const App = () => {
 
     return (
         <main className='main'>
+            <Helmet>
+                <meta name="title" content="Rally Trip ראלי טריפ" />
+                <meta name="description" content="ראלי טריפ עוסקת במכירת מוצרים הקשורים לעולם הראלי רייד (ספרי דרך, סיפורי דרך, גרמין, גופרו, מדי מרחק), בהדרכות ניווט ובהוצאת קבוצות למרוצים בחול" />
+                <title>Rally Trip ראלי טריפ</title>
+            </Helmet>
             <NavBar />
             <ErrorBoundary>
                 <Suspense fallback={''}>

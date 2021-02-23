@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../../images/navguide1.png';
 import image1 from '../../images/navguide2.png';
 import image2 from '../../images/navguide3.png';
-
+import { Helmet } from 'react-helmet';
 import MakeContact from '../../components/Product/MakeContact';
 import './NavGuide.css';
 
@@ -10,6 +10,11 @@ const NavGuide = () => {
 
     return (
         <div className='page-container'>
+            <Helmet>
+                <title>הדרכות ניווט - Rally Trip</title>
+                <meta name="description" content=" הדרכות ניווט באמצעות ספר דרך אישיות או קבוצתיות. כל ההדרכות מועברות על ידי רז הימן." />
+
+            </Helmet>
             <h1 style={{ textAlign: 'center', padding: '15px 0px 20px' }}>ניווט באמצעות ספר דרך</h1>
             <article className='navguide-container'>
                 <div className='navguide-item reverse'>
@@ -47,7 +52,7 @@ const NavGuide = () => {
                     </div>
                 </div>
                 <h2>לרכישה</h2>
-                <div><MakeContact alignRight withIcons/></div>
+                <div><MakeContact alignRight withIcons /></div>
             </article>
         </div>
     );

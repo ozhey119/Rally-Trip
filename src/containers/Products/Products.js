@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet'
 import SideMenu from '../../components/SideMenu/SideMenu';
 import MobileMenu from '../../components/MobileMenu/MobileMenu';
 import ProductPreview from '../../components/Product/ProductPreview';
@@ -41,6 +42,10 @@ const Products = () => {
 
     return (
         <div className='page-container products-page'>
+            <Helmet>
+                <title>מוצרים - Rally Trip</title>
+                <meta name="description" content='בראלי טריפ ניתן לרכוש מגווון מוצרים הקשורים לעולם הראלי רייד ולשטח בכלל. ספרי דרך, מכשירי גרמין, דיבוריות, מצלמות גופרו ועוד' />
+            </Helmet>
             <Switch>
                 <Route path='/products/:category/:subcategory/:id'>
                     <ProductPage product={information[id]} id={id} />

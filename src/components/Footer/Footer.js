@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
                 <div >© כל הזכויות שמורות לRally Trip</div>
             </div>
-            <div className='credit'><a  href="https://www.facebook.com/OzHey">Developed by Oz Heymann</a></div>
+            <div className='credit'><a  href="https://www.linkedin.com/in/oz-heymann-2193901a6/">Developed by Oz Heymann</a></div>
         </section>
     );
 }

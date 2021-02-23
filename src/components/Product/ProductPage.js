@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import ReactQuill from 'react-quill';
 import MakeContact from './MakeContact';
 import Breadcrumbs from './Breadcrumbs';
@@ -9,7 +10,7 @@ import { fireDb } from "../../firebase";
 import './Product.css';
 
 const ProductPage = ({ product = {}, id }) => {
-    const { title = '', description = '', price = '', stock = 0 } = product;
+    const { title = '', description = '', price = '', stock = 0, image = '' } = product;
     const [quillData, setQuillData] = useState('');
 
     // After the current product id changes, we will change the fields accordingly
@@ -26,10 +27,14 @@ const ProductPage = ({ product = {}, id }) => {
     } else {
         return (
             <article style={{ width: '100%' }}>
+                <Helmet>
+                    <title>{title + ' | ראלי טריפ'}</title>
+                    <meta name="description" content={description}/>
+                </Helmet>
                 <Breadcrumbs title={title} />
                 <div className='product-grid'>
                     <div className='img-container'>
-                        {title ? <img src={(product && product.image) ? product.image : ''} alt='product' /> : ''}
+                        {title ? <img src={image} alt='product' /> : ''}
                     </div>
                     <div className='product-information'>
                         <h2>{title}</h2>

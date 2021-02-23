@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import ReactQuill from 'react-quill';
 import { fireDb } from '../../firebase'
 import RazImg from '../../images/raz.png'
@@ -18,6 +19,10 @@ const Abroad = () => {
 
     return (
         <div className='page-container'>
+            <Helmet>
+                <title>ראליים בחו"ל - Rally Trip</title>
+                <meta name="description" content='רז הימן מוציא קבוצות ויחידים למרוצים בין לאומיים בחו"ל '/>
+            </Helmet>
             <h1 style={{ textAlign: 'center', padding: '15px 0px 20px' }}>ראלי רייד בחו"ל</h1>
             <article className='abroad-container'>
                 <h3>"אחרי 30 שנה של השתתפות בראליים בעולם, אני יודע להגיד בוודאות שגם את/ה יכול/ה לחוות ולהנות מראלי רייד בחו"ל."</h3>
@@ -36,7 +41,7 @@ const Abroad = () => {
                     <li>ליווי קבוצתי או אישי לפני ובזמן המרוץ</li>
                     <li>ועוד..</li>
                 </ul>
-                <h1 style = {{padding: '10px 0px'}}>הראלי הקרוב</h1>
+                <h1 style={{ padding: '10px 0px' }}>הראלי הקרוב</h1>
                 <ReactQuill theme="bubble" value={quillData} readOnly />
                 <h4>לפרטים נוספים:</h4>
                 <div><MakeContact alignRight withIcons /></div>
