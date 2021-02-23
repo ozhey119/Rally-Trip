@@ -32,6 +32,8 @@ const Products = () => {
             .filter((id) => (!category ||
                 (category === information[id].category && !subcategory) ||
                 subcategory === information[id].subcategory))
+            //sort by the priority field
+            .sort((idA, idB) => parseInt((information[idB].priority) || 0) - (parseInt(information[idA].priority) || 0))
             .map(id => <ProductPreview key={id} product={information[id]} id={id} />)
         setProducts(productsTemp);
     }, [category, subcategory, information])

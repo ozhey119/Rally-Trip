@@ -100,8 +100,8 @@ const ProductManager = ({ action }) => {
     // After the current product id changes, we will change the fields accordingly
     useEffect(() => {
         if (currentProductId) {
-            const { title = '', description = '', price = 0, stock = 0, category = '', subcategory = '' } = productsInfo[currentProductId]
-            reset({ title, description, price, stock, category, subcategory }) // insert product's values to the form fields
+            const { title = '', description = '', price = 0, stock = 0, category = '', subcategory = '', priority = 0 } = productsInfo[currentProductId];
+            reset({ title, description, price, stock, category, subcategory, priority }); // insert product's values to the form fields
             fireDb.ref(`quill/${currentProductId}`).once('value', snapshot => {
                 if (snapshot.val() != null) {
                     setEditorValue(snapshot.val())
@@ -220,6 +220,8 @@ const ProductManager = ({ action }) => {
                     <label>מלאי</label>
                     <input type='number' name="stock" ref={register({ required: true })} placeholder="מלאי" />
                     {errors.stock && <span className="error">יש להכניס מספר מוצרים במלאי</span>}
+                    <label> עדיפות (מוצר בעל ערך גבוה יוצג יותר למעלה)</label>
+                    <input type='number' name="priority" ref={register} placeholder="עדיפות" />
                     <label>תמונה</label>
                     <ImageUploader product={productsInfo[currentProductId]} uploadedImage={uploadedImage} register={register} />
                     <label style={{ padding: '5px 0px 7px' }}>מידע נוסף</label>
