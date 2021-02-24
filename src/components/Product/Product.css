@@ -156,5 +156,8 @@
     .breadcrumbs {
         font-size: 12.5px;
     }
+    .img-container img {
+        max-height: 45vh;
+    }
     
 }
