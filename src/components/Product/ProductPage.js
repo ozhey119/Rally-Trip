@@ -10,7 +10,7 @@ import { fireDb } from "../../firebase";
 import './Product.css';
 
 const ProductPage = ({ product = {}, id }) => {
-    const { title = '', description = '', price = 0, stock = 0, image = '', discount = 300 } = product;
+    const { title = '', description = '', price = 0, stock = 0, image = '', discount = 0 } = product;
     const [quillData, setQuillData] = useState('');
 
     let priceTag;
