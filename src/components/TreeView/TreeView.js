@@ -7,13 +7,15 @@ const TreeView = ({ label, children, labelClass }) => {
 
     return (
         <>
-            <div className={labelClass} style ={{display: 'flex'}} onClick={() => setViewItems(prevState => !prevState)}>
+            <div className={labelClass} style={{ display: 'flex' }} onClick={() => setViewItems(prevState => !prevState)}>
                 {label}
-                <img src={arrow} alt='arrow' style = {{height:'20px', marginRight: 'auto'}} className={viewItems ? 'rotate-up' : 'rotate-down'} />
+                <img src={arrow} alt='arrow' style={{ height: '20px', marginRight: 'auto' }} className={viewItems ? 'rotate-up' : 'rotate-down'} />
             </div>
-            <ul className={viewItems ? 'show-tree' : 'hide-tree'}>
-                {children}
-            </ul>
+            <div className={viewItems ? 'show-tree' : 'hide-tree'}>
+                <ul style={{ overflow: 'hidden' }} className={viewItems ? 'show-tree' : 'hide-tree'}>
+                    {children}
+                </ul>
+            </div>
         </>
     );
 }

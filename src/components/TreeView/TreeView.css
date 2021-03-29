@@ -1,11 +1,10 @@
 .show-tree {
-    max-height: 350px;
+    max-height: 380px;
+    height: 380px;
     transition: 0.5s ease-out;
-    overflow: hidden;
 }
 
 .hide-tree {
-    overflow: hidden;
     max-height: 0px;
     transition: 0.5s ease-in;
 }
