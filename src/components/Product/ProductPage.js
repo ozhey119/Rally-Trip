@@ -10,8 +10,21 @@ import { fireDb } from "../../firebase";
 import './Product.css';
 
 const ProductPage = ({ product = {}, id }) => {
-    const { title = '', description = '', price = '', stock = 0, image = '' } = product;
+    const { title = '', description = '', price = 0, stock = 0, image = '', discount = 300 } = product;
     const [quillData, setQuillData] = useState('');
+
+    let priceTag;
+    if (price > 0 && discount > 0 && parseInt(discount) < parseInt(price)) {
+        priceTag = <>
+            <div className='price'>{`הנחה! ₪${discount} בלבד`}</div>
+            <div style={{ textDecoration: 'line-through', paddingRight: '7px' }}>{`₪${price}`}</div>
+        </>
+    } else if (price > 0) {
+        priceTag = <div className='price'>{`₪${price}`}</div>
+    } else {
+        priceTag = <div className='price'>צור קשר לקבלת מחיר</div>
+    }
+
 
     // After the current product id changes, we will change the fields accordingly
     useEffect(() => {
@@ -29,7 +42,7 @@ const ProductPage = ({ product = {}, id }) => {
             <article style={{ width: '100%' }}>
                 <Helmet>
                     <title>{title + ' | ראלי טריפ'}</title>
-                    <meta name="description" content={description}/>
+                    <meta name="description" content={description} />
                 </Helmet>
                 <Breadcrumbs title={title} />
                 <div className='product-grid'>
@@ -39,11 +52,11 @@ const ProductPage = ({ product = {}, id }) => {
                     <div className='product-information'>
                         <h2>{title}</h2>
                         <div className='divider'></div>
-                        <div className='price'>{parseInt(price) ? `₪${price}` : 'צור קשר לקבלת מחיר'}</div>
+                        {priceTag}
                         <h4>{description}</h4>
                         {parseInt(stock) ?
-                            <div style={{ color: 'green' }}>&#9745; המוצר במלאי </div> :
-                            <div style={{ color: 'red' }}>&#9746; המוצר לא קיים במלאי. צור קשר לבירור זמן אספקה. </div>}
+                            <div style={{ color: 'green', paddingRight: '7px' }}>&#9745; המוצר במלאי </div> :
+                            <div style={{ color: 'red', paddingRight: '7px' }}>&#9746; המוצר לא קיים במלאי. צור קשר לבירור זמן אספקה. </div>}
                         <h2 style={{ textAlign: 'center' }}>לרכישה</h2>
                         <MakeContact withIcons />
                     </div>

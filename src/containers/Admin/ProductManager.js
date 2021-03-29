@@ -129,7 +129,7 @@ const ProductManager = ({ action }) => {
         }
     }, [action, productsInfo, reset])
 
-    // This hook is used for filtering
+    // This hook is used to filter the relevant products in the select tag
     useEffect(() => {
         let productsTemp = Object.keys(productsInfo)
             .filter((id) => (!category ||
@@ -210,6 +210,8 @@ const ProductManager = ({ action }) => {
                     <label>מחיר</label>
                     <input type='number' name="price" ref={register({ required: true })} placeholder="מחיר" />
                     {errors.price && <span className="error">יש לציין מחיר. כדי שיופיע "צור קשר לקבלת מחיר", יש לציין מחיר 0</span>}
+                    <label>מחיר מבצע</label>
+                    <input type='number' name="discount" ref={register} placeholder="מחיר מבצע" />
                     <label>תיאור</label>
                     <textarea name="description" ref={register} placeholder="תיאור" />
                     <label>קטגוריה</label>
@@ -236,6 +238,7 @@ const ProductManager = ({ action }) => {
     );
 }
 
+// This function uploads an image to firebase and returns the download url
 async function uploadTaskPromise(productId, file, name) {
     return new Promise(function (resolve, reject) {
         //Now we will upload the image and return the download url
